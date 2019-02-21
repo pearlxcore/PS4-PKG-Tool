@@ -21,6 +21,12 @@ namespace PKG_TOOL_GUI
 {
     public partial class Form1 : Form
     {
+        static byte[] bufferA = new byte[0];
+        static byte[] Header_Magic =
+        {
+            0x7F, 0x43, 0x4E, 0x54, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0F,
+        };
+        static byte[] PKGHeader = new byte[16];
 
         static string xlsx = @"xlsx.bat";
         static string rename = @"pkg_rename.py";
@@ -123,6 +129,21 @@ namespace PKG_TOOL_GUI
             Python_Tool.ShowDialog();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            console.ClearOutput();
+            DirectoryInfo d = new DirectoryInfo(textOpen.Text);
+
+            foreach (var file in d.GetFiles("*.PKG"))
+            {
+
+                console.WriteOutput("> " + file.ToString() + "\n", Color.Silver);
+
+
+
+            }
+        }
+
         private static void Extract(string nameSpace, string outDirectory, string internalFilePath, string resourceName)
         {
             Assembly assembly = Assembly.GetCallingAssembly();
@@ -173,6 +194,16 @@ namespace PKG_TOOL_GUI
 
                     console.ClearOutput();
 
+                    DirectoryInfo d = new DirectoryInfo(textOpen.Text);
+
+                    foreach (var file in d.GetFiles("*.PKG"))
+                    {
+                        
+                                console.WriteOutput("> " + file.ToString() + "\n", Color.Silver);
+                        
+                        
+                        
+                    }
 
 
                     bool searchpkg;
@@ -188,6 +219,7 @@ namespace PKG_TOOL_GUI
                         btnRename.Enabled = true;
                         btnRename2.Enabled = true;
                         btnList.Enabled = true;
+                        btnRefreshList.Enabled = true;
 
 
                         //console.WriteOutput("PKG list : \n", System.Drawing.Color.Gray);
@@ -207,6 +239,8 @@ namespace PKG_TOOL_GUI
                         btnRename.Enabled = false;
                         btnRename2.Enabled = false;
                         btnList.Enabled = false;
+                        btnRefreshList.Enabled = false;
+
 
                     }
 

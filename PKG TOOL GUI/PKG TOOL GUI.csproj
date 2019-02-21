@@ -35,9 +35,13 @@
   <PropertyGroup>
     <ApplicationIcon>PackageIcon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConsoleControl">
-      <HintPath>.\ConsoleControl.dll</HintPath>
+    <Reference Include="ConsoleControl, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ConsoleControlSource\ConsoleControl\ConsoleControl\bin\Debug\ConsoleControl.dll</HintPath>
     </Reference>
     <Reference Include="ProcessInterface">
       <HintPath>.\ProcessInterface.dll</HintPath>
@@ -59,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +96,9 @@
     <EmbeddedResource Include="Python Tool.resx">
       <DependentUpon>Python Tool.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
