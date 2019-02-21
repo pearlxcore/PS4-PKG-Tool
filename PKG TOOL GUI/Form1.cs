@@ -89,139 +89,11 @@ namespace PKG_TOOL_GUI
             console.StartProcess(py, arg);
         }
 
-        private void Ipy_Click(object sender, EventArgs e)
-        {
-            CheckPython278();
-        }
-
-        private void CheckPython278()
-        {
-
-
-            timer1.Enabled = true;
-            timer1.Start();
-
-            //check if python 2.7.8 installed. this path works only for 86-bit version
-            if (Tool.CheckInstalledSoft("hklm", @"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall", "DisplayName", "Python 2.7.8") == true)
-            {
-                Ipy.Enabled = false;
-                MessageBox.Show("Python is already installed.");
-
-            }
-            else
-            {
-
-                Ipy.Enabled = true;
-                Process.Start(@"Installer\python-2.7.8.msi");
-
-                MessageBox.Show("Python installed.");
 
 
 
-            }
-
-        }
 
 
-        private void btnPIP_Click(object sender, EventArgs e)
-        {
-            console.WriteOutput("> Installing pip..\n", System.Drawing.Color.Gray);
-
-            if (Directory.Exists(@"E:\Python27\Lib\site-packages\pip") || Directory.Exists(@"C:\Python27\Lib\site-packages\pip"))
-            {
-                console.WriteOutput("> pip already installed.\n\n", System.Drawing.Color.Gray);
-                btnPIP.Enabled = false;
-
-            }
-            else
-            {
-                //console.WriteOutput("Checking..\n", System.Drawing.Color.Gray);
-
-                cmd1 = " ";
-                py = "python";
-                arg = (cmd1 + pip);
-
-                //Old method
-                //var process = System.Diagnostics.Process.Start(py, arg);
-
-                ProcessStartInfo startInfo = new ProcessStartInfo(py, arg);
-                startInfo.WindowStyle = ProcessWindowStyle.Minimized; //make program run hidden
-                Process wait = Process.Start(startInfo); //set new var for waitforexit()
-                wait.WaitForExit();
-
-                console.WriteOutput("> pip installed.\n\n", System.Drawing.Color.Gray);
-                btnPIP.Enabled = false;
-            }
-        }
-
-        private void Ipy_Click_1(object sender, EventArgs e)
-        {
-            CheckPython278();
-        }
-
-        private void btnPIP_Click_1(object sender, EventArgs e)
-        {
-            if (CheckForInternetConnection())
-            {
-                Isconnected = true;
-
-                if (Directory.Exists(@"E:\Python27\Lib\site-packages\pip") || Directory.Exists(@"C:\Python27\Lib\site-packages\pip"))
-                {
-                    MessageBox.Show("PIP already installed.");
-
-                    btnPIP.Enabled = false;
-
-                }
-                else
-                {
-                    //console.WriteOutput("Checking..\n", System.Drawing.Color.Gray);
-
-                    cmd1 = " ";
-                    py = "python";
-                    arg = (cmd1 + pip);
-
-                    //Old method
-                    //var process = System.Diagnostics.Process.Start(py, arg);
-
-                    ProcessStartInfo startInfo = new ProcessStartInfo(py, arg);
-                    startInfo.WindowStyle = ProcessWindowStyle.Minimized; //make program run hidden
-                    Process wait = Process.Start(startInfo); //set new var for waitforexit()
-                    wait.WaitForExit();
-
-                    btnPIP.Enabled = false;
-                }
-
-
-                if (Directory.Exists(@"E:\Python27\Lib\site-packages\xlsxwriter") || Directory.Exists(@"C:\Python27\Lib\site-packages\xlsxwriter"))
-                {
-                    MessageBox.Show("XLSX Writer already installed.");
-
-                }
-                else
-                {
-
-                    //console.WriteOutput("*If xlsxwriter installations fail, click on 'xlsx.bat' to install manually.*\n", System.Drawing.Color.Gray);
-
-                    // old method
-                    //var process = System.Diagnostics.Process.Start(xlsx, null);
-                    //process.WaitForExit();*/
-
-                    ProcessStartInfo startInfo = new ProcessStartInfo(xlsx, null);
-                    startInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                    Process.Start(startInfo);
-
-                    //console.StartProcess(xlsx, null);
-                    MessageBox.Show("XlSX Writer installed.");
-
-
-                }
-            }
-            else
-            {
-                Isconnected = false;
-                MessageBox.Show("No internet connection detected.\nPlease check your connection.");
-            }
-        }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -238,6 +110,17 @@ namespace PKG_TOOL_GUI
             File.Delete("python-2.7.8.msi");
             Directory.Delete(path + "\\lib", true);
 
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pythonSetupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Python_Tool Python_Tool = new Python_Tool();
+            Python_Tool.ShowDialog();
         }
 
         private static void Extract(string nameSpace, string outDirectory, string internalFilePath, string resourceName)

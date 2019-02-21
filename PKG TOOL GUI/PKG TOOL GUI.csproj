@@ -7,7 +7,7 @@
     <ProjectGuid>{81B996A1-DE31-40E2-8317-999A46C99172}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>PKG_TOOL_GUI</RootNamespace>
-    <AssemblyName>PKG TOOL GUI</AssemblyName>
+    <AssemblyName>PKG Tool GUI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -67,6 +67,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Python Tool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Python Tool.Designer.cs">
+      <DependentUpon>Python Tool.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +88,9 @@
     <EmbeddedResource Include="MyResources\python-2.7.8.msi" />
     <EmbeddedResource Include="MyResources\xlsx.bat" />
     <EmbeddedResource Include="MyResources\lib.zip" />
+    <EmbeddedResource Include="Python Tool.resx">
+      <DependentUpon>Python Tool.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
