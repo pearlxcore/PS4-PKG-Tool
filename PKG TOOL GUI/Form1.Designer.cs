@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnRefreshList = new System.Windows.Forms.Button();
             this.btnRename = new System.Windows.Forms.Button();
             this.btnRename2 = new System.Windows.Forms.Button();
             this.btnList = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pythonSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnRefreshList = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -78,6 +78,19 @@
             this.groupBox3.TabIndex = 35;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Rename/Export";
+            // 
+            // btnRefreshList
+            // 
+            this.btnRefreshList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnRefreshList.Enabled = false;
+            this.btnRefreshList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRefreshList.Location = new System.Drawing.Point(447, 19);
+            this.btnRefreshList.Name = "btnRefreshList";
+            this.btnRefreshList.Size = new System.Drawing.Size(136, 33);
+            this.btnRefreshList.TabIndex = 27;
+            this.btnRefreshList.Text = "Refresh PKG list";
+            this.btnRefreshList.UseVisualStyleBackColor = false;
+            this.btnRefreshList.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnRename
             // 
@@ -228,19 +241,6 @@
             this.pythonSetupToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.pythonSetupToolStripMenuItem.Text = "Python Setup";
             this.pythonSetupToolStripMenuItem.Click += new System.EventHandler(this.pythonSetupToolStripMenuItem_Click);
-            // 
-            // btnRefreshList
-            // 
-            this.btnRefreshList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnRefreshList.Enabled = false;
-            this.btnRefreshList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRefreshList.Location = new System.Drawing.Point(447, 19);
-            this.btnRefreshList.Name = "btnRefreshList";
-            this.btnRefreshList.Size = new System.Drawing.Size(136, 33);
-            this.btnRefreshList.TabIndex = 27;
-            this.btnRefreshList.Text = "Refresh PKG list";
-            this.btnRefreshList.UseVisualStyleBackColor = false;
-            this.btnRefreshList.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 

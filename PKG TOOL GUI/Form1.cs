@@ -22,19 +22,14 @@ namespace PKG_TOOL_GUI
     public partial class Form1 : Form
     {
         static byte[] bufferA = new byte[0];
-        static byte[] Header_Magic =
-        {
-            0x7F, 0x43, 0x4E, 0x54, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0F,
-        };
+        
         static byte[] PKGHeader = new byte[16];
 
-        static string xlsx = @"xlsx.bat";
         static string rename = @"pkg_rename.py";
         static string list = @"pkg_list.py";
-        static string pip = @"get-pip.py";
         static string cmd1, cmd2, cmd3, path, arg, py;
 
-        public static bool Isconnected = false;
+        public static bool Isconnected = true;
 
         public static bool CheckForInternetConnection()
         {
@@ -78,7 +73,6 @@ namespace PKG_TOOL_GUI
             py = "python";
             arg = (rename + cmd1 + path + cmd3);
             console.ClearOutput();
-
             console.StartProcess(py, arg);
         }
 
@@ -89,22 +83,13 @@ namespace PKG_TOOL_GUI
             cmd1 = " ";
             py = "python";
             arg = (list + cmd1 + path + cmd2);
-
             console.ClearOutput();
-
             console.StartProcess(py, arg);
         }
-
-
-
-
-
-
-
+        
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             string path = Environment.CurrentDirectory;
-
             File.Delete("lib.zip");
             File.Delete("xlsx.bat");
             File.Delete("common.py");
@@ -115,7 +100,6 @@ namespace PKG_TOOL_GUI
             File.Delete("xlsxlist.py");
             File.Delete("python-2.7.8.msi");
             Directory.Delete(path + "\\lib", true);
-
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -133,14 +117,9 @@ namespace PKG_TOOL_GUI
         {
             console.ClearOutput();
             DirectoryInfo d = new DirectoryInfo(textOpen.Text);
-
             foreach (var file in d.GetFiles("*.PKG"))
             {
-
                 console.WriteOutput("> " + file.ToString() + "\n", Color.Silver);
-
-
-
             }
         }
 
@@ -178,7 +157,6 @@ namespace PKG_TOOL_GUI
             Extract("PKG_TOOL_GUI", path, "MyResources", "pkg_rename.py");
             Extract("PKG_TOOL_GUI", path, "MyResources", "xlsxlist.py");
             Extract("PKG_TOOL_GUI", path, "MyResources", "python-2.7.8.msi");
-
             ZipFile.ExtractToDirectory(@"lib.zip", path);
 
         }
@@ -189,7 +167,6 @@ namespace PKG_TOOL_GUI
             {
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
-
                     textOpen.Text = folderDialog.SelectedPath;
 
                     console.ClearOutput();
@@ -198,58 +175,29 @@ namespace PKG_TOOL_GUI
 
                     foreach (var file in d.GetFiles("*.PKG"))
                     {
-                        
                                 console.WriteOutput("> " + file.ToString() + "\n", Color.Silver);
-                        
-                        
-                        
                     }
-
-
-                    bool searchpkg;
                     string dirPath = textOpen.Text;
                     string[] fileNames = Directory.GetFiles(dirPath, "*.pkg", SearchOption.TopDirectoryOnly);
                     if (fileNames.Length != 0)
                     {
-                        searchpkg = true;
-
-
                         MessageBox.Show("PKG files detected in (" + textOpen.Text + ").\nChoose to Rename or Export the PKG.");
-
                         btnRename.Enabled = true;
                         btnRename2.Enabled = true;
                         btnList.Enabled = true;
                         btnRefreshList.Enabled = true;
-
-
-                        //console.WriteOutput("PKG list : \n", System.Drawing.Color.Gray);
-
-                        /*foreach (string fileName in fileNames)
-                        {
-
-                            //console.WriteOutput("{0}\n", fileNames System.Drawing.Color.Gray);
-                              do you process for each file here 
-                        }*/
                     }
                     else
                     {
-                        searchpkg = false;
                         MessageBox.Show("No PKG files detected in (" + textOpen.Text + ").");
 
                         btnRename.Enabled = false;
                         btnRename2.Enabled = false;
                         btnList.Enabled = false;
                         btnRefreshList.Enabled = false;
-
-
                     }
-
-
-
-
                 }
             }
-
         }
 
         private void btnCleartxt_Click(object sender, EventArgs e)
@@ -265,9 +213,7 @@ namespace PKG_TOOL_GUI
             cmd1 = " ";
             py = "python";
             arg = (rename + cmd1 + path + cmd3);
-
             console.ClearOutput();
-
             console.StartProcess(py, arg);
         }
     }

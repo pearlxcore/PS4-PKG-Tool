@@ -23,49 +23,17 @@ namespace PKG_TOOL_GUI
 
         static string pip = @"get-pip.py";
         static string xlsx = @"xlsx.bat";
-        public static bool Isconnected = false;
 
-        static string cmd1, cmd2, cmd3, path, arg, py;
+        static string cmd1, arg, py;
 
         public Python_Tool()
         {
             InitializeComponent();
         }
-
-        public static bool CheckForInternetConnection()
-        {
-            try
-            {
-                Ping myPing = new Ping();
-                String host = "google.com";
-                byte[] buffer = new byte[32];
-                int timeout = 1000;
-                PingOptions pingOptions = new PingOptions();
-                PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
-                if (reply.Status == IPStatus.Success)
-                {
-                    return true;
-                }
-                else if (reply.Status == IPStatus.TimedOut)
-                {
-                    return Isconnected;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-
+        
         private void CheckPython278()
         {
-
-
+            
             timer1.Enabled = true;
             timer1.Start();
 
@@ -80,9 +48,11 @@ namespace PKG_TOOL_GUI
             {
 
                 Ipy.Enabled = true;
-                Process.Start(@"Installer\python-2.7.8.msi");
-
-                MessageBox.Show("Python installed.");
+                Process p = new Process();
+                p.StartInfo.FileName = @"python-2.7.8.msi";
+                p.Start();
+                p.WaitForExit();
+                
 
 
 
@@ -97,9 +67,8 @@ namespace PKG_TOOL_GUI
 
         private void btnPIP_Click(object sender, EventArgs e)
         {
-            if (CheckForInternetConnection())
+            if (Form1.Isconnected == true)
             {
-                Isconnected = true;
 
                 if (Directory.Exists(@"E:\Python27\Lib\site-packages\pip") || Directory.Exists(@"C:\Python27\Lib\site-packages\pip"))
                 {
@@ -127,10 +96,10 @@ namespace PKG_TOOL_GUI
                     btnPIP.Enabled = false;
                 }
 
-
+                // E: is my directory >.<
                 if (Directory.Exists(@"E:\Python27\Lib\site-packages\xlsxwriter") || Directory.Exists(@"C:\Python27\Lib\site-packages\xlsxwriter"))
                 {
-                    MessageBox.Show("XLSX Writer already installed.");
+                    MessageBox.Show("XLSX Writer already installed.", "Info");
 
                 }
                 else
@@ -154,8 +123,7 @@ namespace PKG_TOOL_GUI
             }
             else
             {
-                Isconnected = false;
-                MessageBox.Show("No internet connection detected.\nPlease check your connection.");
+                MessageBox.Show("No internet connection detected. Please check your connection.", "Connection error");
             }
         }
     }
