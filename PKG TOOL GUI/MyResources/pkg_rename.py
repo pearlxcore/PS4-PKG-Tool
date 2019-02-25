@@ -8,7 +8,12 @@ sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
 NAME_FORMAT = u'%TITLE% (%TITLE_ID%) [v%VER%]'
-
+FORMAT_1 = u'%TITLE%'
+FORMAT_2 = u'%TITLE_ID%'
+FORMAT_3 = u'%CONTENT_ID%'
+FORMAT_4 = u'%TITLE% (%TITLE_ID%)'
+FORMAT_5 = u'%TITLE% (%REGION%)'
+FORMAT_6 = u'%TITLE% (%TITLE_ID%) [%REGION%]'
 ## parse arguments
 parser = argparse.ArgumentParser(
 	description = 'This tool renames PS4 pkg files to the sony format (default), a readable\n'
@@ -31,6 +36,12 @@ parser.add_argument('-c', dest='custom_format', type=unicode, help='custom file 
 parser.add_argument('-n', dest='name_format', action='store_true', help='use a readable name format')
 parser.add_argument('-d', dest='dir', action='store_true', help='rename all files in the specified directory')
 parser.add_argument('-r', dest='recursive', action='store_true', help='include subdirectories')
+parser.add_argument('-1', dest='format_1', action='store_true', help='use a readable name format')
+parser.add_argument('-2', dest='format_2', action='store_true', help='use a readable name format')
+parser.add_argument('-3', dest='format_3', action='store_true', help='use a readable name format')
+parser.add_argument('-4', dest='format_4', action='store_true', help='use a readable name format')
+parser.add_argument('-5', dest='format_5', action='store_true', help='use a readable name format')
+parser.add_argument('-6', dest='format_6', action='store_true', help='use a readable name format')
 
 try:
 	args = parser.parse_args()
@@ -86,6 +97,24 @@ def renamePkg(pkg_file_path):
 			if (args.custom_format):
 				# use custom formatting
 				format_out = doDictFormat(args.custom_format, pkgInfo)
+			elif (args.format_1):
+				# format with readable name
+				format_out = doDictFormat(FORMAT_1, pkgInfo)
+			elif (args.format_2):
+				# format with readable name
+				format_out = doDictFormat(FORMAT_2, pkgInfo)
+			elif (args.format_3):
+				# format with readable name
+				format_out = doDictFormat(FORMAT_3, pkgInfo)
+			elif (args.format_4):
+				# format with readable name
+				format_out = doDictFormat(FORMAT_4, pkgInfo)
+			elif (args.format_5):
+				# format with readable name
+				format_out = doDictFormat(FORMAT_5, pkgInfo)
+			elif (args.format_6):
+				# format with readable name
+				format_out = doDictFormat(FORMAT_6, pkgInfo)
 			elif (args.name_format):
 				# format with readable name
 				format_out = doDictFormat(NAME_FORMAT, pkgInfo)

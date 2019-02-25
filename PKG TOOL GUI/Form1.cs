@@ -65,16 +65,7 @@ namespace PKG_TOOL_GUI
             InitializeComponent();
         }
 
-        private void btnRename2_Click(object sender, EventArgs e)
-        {
-            path = textOpen.Text;
-            cmd3 = " -n -d";
-            cmd1 = " ";
-            py = "python";
-            arg = (rename + cmd1 + path + cmd3);
-            console.ClearOutput();
-            console.StartProcess(py, arg);
-        }
+        
 
         private void btnList_Click(object sender, EventArgs e)
         {
@@ -121,6 +112,17 @@ namespace PKG_TOOL_GUI
             {
                 console.WriteOutput("> " + file.ToString() + "\n", Color.Silver);
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            path = textOpen.Text;
+            cmd3 = " -3 -d";
+            cmd1 = " ";
+            py = "python";
+            arg = (rename + cmd1 + path + cmd3);
+            console.ClearOutput();
+            console.StartProcess(py, arg);
         }
 
         private static void Extract(string nameSpace, string outDirectory, string internalFilePath, string resourceName)
@@ -183,7 +185,6 @@ namespace PKG_TOOL_GUI
                     {
                         MessageBox.Show("PKG files detected in (" + textOpen.Text + ").\nChoose to Rename or Export the PKG.");
                         btnRename.Enabled = true;
-                        btnRename2.Enabled = true;
                         btnList.Enabled = true;
                         btnRefreshList.Enabled = true;
                     }
@@ -192,7 +193,6 @@ namespace PKG_TOOL_GUI
                         MessageBox.Show("No PKG files detected in (" + textOpen.Text + ").");
 
                         btnRename.Enabled = false;
-                        btnRename2.Enabled = false;
                         btnList.Enabled = false;
                         btnRefreshList.Enabled = false;
                     }
@@ -208,13 +208,89 @@ namespace PKG_TOOL_GUI
 
         private void btnRename_Click(object sender, EventArgs e)
         {
-            path = textOpen.Text;
-            cmd3 = " -d";
-            cmd1 = " ";
-            py = "python";
-            arg = (rename + cmd1 + path + cmd3);
-            console.ClearOutput();
-            console.StartProcess(py, arg);
+            if (comboBox1.SelectedItem == "Select Name Format")
+            {
+
+            }
+            else if ( comboBox1.SelectedItem == "TITLE")
+            {
+                path = textOpen.Text;
+                cmd3 = " -1 -d";
+                cmd1 = " ";
+                py = "python";
+                arg = (rename + cmd1 + path + cmd3);
+                console.ClearOutput();
+                console.StartProcess(py, arg);
+            }
+            else if (comboBox1.SelectedItem == "TITLE_ID")
+            {
+                path = textOpen.Text;
+                cmd3 = " -2 -d";
+                cmd1 = " ";
+                py = "python";
+                arg = (rename + cmd1 + path + cmd3);
+                console.ClearOutput();
+                console.StartProcess(py, arg);
+            }
+            else if (comboBox1.SelectedItem == "CONTENT_ID")
+            {
+                path = textOpen.Text;
+                cmd3 = " -3 -d";
+                cmd1 = " ";
+                py = "python";
+                arg = (rename + cmd1 + path + cmd3);
+                console.ClearOutput();
+                console.StartProcess(py, arg);
+            }
+            else if (comboBox1.SelectedItem == "TITLE (TITLE_ID)")
+            {
+                path = textOpen.Text;
+                cmd3 = " -4 -d";
+                cmd1 = " ";
+                py = "python";
+                arg = (rename + cmd1 + path + cmd3);
+                console.ClearOutput();
+                console.StartProcess(py, arg);
+            }
+            else if (comboBox1.SelectedItem == "TITLE (REGION)")
+            {
+                path = textOpen.Text;
+                cmd3 = " -5 -d";
+                cmd1 = " ";
+                py = "python";
+                arg = (rename + cmd1 + path + cmd3);
+                console.ClearOutput();
+                console.StartProcess(py, arg);
+            }
+            else if (comboBox1.SelectedItem == "TITLE (TITLE_ID) [VERSION]")
+            {
+                path = textOpen.Text;
+                cmd3 = " -n -d";
+                cmd1 = " ";
+                py = "python";
+                arg = (rename + cmd1 + path + cmd3);
+                console.ClearOutput();
+                console.StartProcess(py, arg);
+            }
+            else if (comboBox1.SelectedItem == "TITLE (TITLE_ID) [REGION]")
+            {
+                path = textOpen.Text;
+                cmd3 = " -6 -d";
+                cmd1 = " ";
+                py = "python";
+                arg = (rename + cmd1 + path + cmd3);
+                console.ClearOutput();
+                console.StartProcess(py, arg);
+            }
+
+
+            //path = textOpen.Text;
+            //cmd3 = " -d";
+            //cmd1 = " ";
+            //py = "python";
+            //arg = (rename + cmd1 + path + cmd3);
+            //console.ClearOutput();
+            //console.StartProcess(py, arg);
         }
     }
 }

@@ -32,9 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnRefreshList = new System.Windows.Forms.Button();
             this.btnRename = new System.Windows.Forms.Button();
-            this.btnRename2 = new System.Windows.Forms.Button();
             this.btnList = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textOpen = new System.Windows.Forms.TextBox();
@@ -66,10 +66,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.btnList);
             this.groupBox3.Controls.Add(this.btnRefreshList);
             this.groupBox3.Controls.Add(this.btnRename);
-            this.groupBox3.Controls.Add(this.btnRename2);
-            this.groupBox3.Controls.Add(this.btnList);
             this.groupBox3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.Silver;
             this.groupBox3.Location = new System.Drawing.Point(12, 99);
@@ -77,18 +77,35 @@
             this.groupBox3.Size = new System.Drawing.Size(591, 59);
             this.groupBox3.TabIndex = 35;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Rename/Export";
+            this.groupBox3.Text = "Rename/Export PKG";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "TITLE",
+            "TITLE_ID",
+            "CONTENT_ID",
+            "TITLE (TITLE_ID)",
+            "TITLE (REGION)",
+            "TITLE (TITLE_ID) [VERSION]",
+            "TITLE (TITLE_ID) [REGION]"});
+            this.comboBox1.Location = new System.Drawing.Point(10, 25);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(177, 22);
+            this.comboBox1.TabIndex = 41;
             // 
             // btnRefreshList
             // 
             this.btnRefreshList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnRefreshList.Enabled = false;
             this.btnRefreshList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRefreshList.Location = new System.Drawing.Point(447, 19);
+            this.btnRefreshList.Location = new System.Drawing.Point(324, 25);
             this.btnRefreshList.Name = "btnRefreshList";
-            this.btnRefreshList.Size = new System.Drawing.Size(136, 33);
+            this.btnRefreshList.Size = new System.Drawing.Size(125, 22);
             this.btnRefreshList.TabIndex = 27;
-            this.btnRefreshList.Text = "Refresh PKG list";
+            this.btnRefreshList.Text = "Refresh PKG List";
             this.btnRefreshList.UseVisualStyleBackColor = false;
             this.btnRefreshList.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -98,38 +115,24 @@
             this.btnRename.Enabled = false;
             this.btnRename.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRename.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRename.Location = new System.Drawing.Point(8, 19);
+            this.btnRename.Location = new System.Drawing.Point(193, 25);
             this.btnRename.Name = "btnRename";
-            this.btnRename.Size = new System.Drawing.Size(149, 33);
+            this.btnRename.Size = new System.Drawing.Size(125, 22);
             this.btnRename.TabIndex = 2;
-            this.btnRename.Text = "Rename (Readable)";
+            this.btnRename.Text = "Rename PKG";
             this.btnRename.UseVisualStyleBackColor = false;
             this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
-            // 
-            // btnRename2
-            // 
-            this.btnRename2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnRename2.Enabled = false;
-            this.btnRename2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRename2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRename2.Location = new System.Drawing.Point(163, 19);
-            this.btnRename2.Name = "btnRename2";
-            this.btnRename2.Size = new System.Drawing.Size(136, 33);
-            this.btnRename2.TabIndex = 26;
-            this.btnRename2.Text = "Rename (Default)";
-            this.btnRename2.UseVisualStyleBackColor = false;
-            this.btnRename2.Click += new System.EventHandler(this.btnRename2_Click);
             // 
             // btnList
             // 
             this.btnList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnList.Enabled = false;
             this.btnList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnList.Location = new System.Drawing.Point(305, 19);
+            this.btnList.Location = new System.Drawing.Point(455, 25);
             this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(136, 33);
+            this.btnList.Size = new System.Drawing.Size(125, 22);
             this.btnList.TabIndex = 3;
-            this.btnList.Text = "Export list";
+            this.btnList.Text = "Export PKG List";
             this.btnList.UseVisualStyleBackColor = false;
             this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
@@ -278,7 +281,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnRename;
-        private System.Windows.Forms.Button btnRename2;
         private System.Windows.Forms.Button btnList;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textOpen;
@@ -293,6 +295,7 @@
         private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pythonSetupToolStripMenuItem;
         private System.Windows.Forms.Button btnRefreshList;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
