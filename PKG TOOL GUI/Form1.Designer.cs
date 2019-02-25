@@ -33,9 +33,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnList = new System.Windows.Forms.Button();
             this.btnRefreshList = new System.Windows.Forms.Button();
             this.btnRename = new System.Windows.Forms.Button();
-            this.btnList = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textOpen = new System.Windows.Forms.TextBox();
             this.buttonOpen = new System.Windows.Forms.Button();
@@ -46,8 +46,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pythonSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutPS4PKGToolGuiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.howToUseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -85,16 +86,27 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "TITLE",
-            "TITLE_ID",
             "CONTENT_ID",
             "TITLE (TITLE_ID)",
             "TITLE (REGION)",
-            "TITLE (TITLE_ID) [VERSION]",
-            "TITLE (TITLE_ID) [REGION]"});
+            "TITLE (TITLE_ID) [VERSION]"});
             this.comboBox1.Location = new System.Drawing.Point(10, 25);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(177, 22);
             this.comboBox1.TabIndex = 41;
+            // 
+            // btnList
+            // 
+            this.btnList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnList.Enabled = false;
+            this.btnList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnList.Location = new System.Drawing.Point(455, 25);
+            this.btnList.Name = "btnList";
+            this.btnList.Size = new System.Drawing.Size(125, 22);
+            this.btnList.TabIndex = 3;
+            this.btnList.Text = "Export PKG List";
+            this.btnList.UseVisualStyleBackColor = false;
+            this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
             // btnRefreshList
             // 
@@ -122,19 +134,6 @@
             this.btnRename.Text = "Rename PKG";
             this.btnRename.UseVisualStyleBackColor = false;
             this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
-            // 
-            // btnList
-            // 
-            this.btnList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnList.Enabled = false;
-            this.btnList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnList.Location = new System.Drawing.Point(455, 25);
-            this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(125, 22);
-            this.btnList.TabIndex = 3;
-            this.btnList.Text = "Export PKG List";
-            this.btnList.UseVisualStyleBackColor = false;
-            this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
             // groupBox2
             // 
@@ -208,7 +207,7 @@
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.settingToolStripMenuItem});
+            this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(615, 24);
@@ -230,20 +229,28 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // settingToolStripMenuItem
+            // aboutToolStripMenuItem
             // 
-            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pythonSetupToolStripMenuItem});
-            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.settingToolStripMenuItem.Text = "Setting";
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutPS4PKGToolGuiToolStripMenuItem,
+            this.howToUseToolStripMenuItem});
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
             // 
-            // pythonSetupToolStripMenuItem
+            // aboutPS4PKGToolGuiToolStripMenuItem
             // 
-            this.pythonSetupToolStripMenuItem.Name = "pythonSetupToolStripMenuItem";
-            this.pythonSetupToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.pythonSetupToolStripMenuItem.Text = "Python Setup";
-            this.pythonSetupToolStripMenuItem.Click += new System.EventHandler(this.pythonSetupToolStripMenuItem_Click);
+            this.aboutPS4PKGToolGuiToolStripMenuItem.Name = "aboutPS4PKGToolGuiToolStripMenuItem";
+            this.aboutPS4PKGToolGuiToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.aboutPS4PKGToolGuiToolStripMenuItem.Text = "About PS4 PKG Tool GUI";
+            this.aboutPS4PKGToolGuiToolStripMenuItem.Click += new System.EventHandler(this.aboutPS4PKGToolGuiToolStripMenuItem_Click);
+            // 
+            // howToUseToolStripMenuItem
+            // 
+            this.howToUseToolStripMenuItem.Name = "howToUseToolStripMenuItem";
+            this.howToUseToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.howToUseToolStripMenuItem.Text = "How to use";
+            this.howToUseToolStripMenuItem.Click += new System.EventHandler(this.howToUseToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -262,7 +269,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PS4 PKG Tool By pearlxcore | Credit To cfwprophet And nighty |";
+            this.Text = "PS4 PKG Tool | Credit To cfwprophet And nighty |";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox3.ResumeLayout(false);
@@ -292,10 +299,11 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pythonSetupToolStripMenuItem;
         private System.Windows.Forms.Button btnRefreshList;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutPS4PKGToolGuiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem howToUseToolStripMenuItem;
     }
 }
 

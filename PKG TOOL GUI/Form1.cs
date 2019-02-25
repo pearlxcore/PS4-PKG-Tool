@@ -25,8 +25,12 @@ namespace PKG_TOOL_GUI
         
         static byte[] PKGHeader = new byte[16];
 
-        static string rename = @"pkg_rename.py";
-        static string list = @"pkg_list.py";
+        static string pip = @"get-pip.py";
+        static string xlsx = @"xlsx.bat";
+        static string rename1 = @"rename1.exe";
+        static string rename2 = @"rename2.exe";
+
+        static string list = @"pkg_list.exe";
         static string cmd1, cmd2, cmd3, path, arg, py;
 
         public static bool Isconnected = true;
@@ -72,25 +76,17 @@ namespace PKG_TOOL_GUI
             path = textOpen.Text;
             cmd2 = " -d";
             cmd1 = " ";
-            py = "python";
-            arg = (list + cmd1 + path + cmd2);
+            arg = (cmd1 + path + cmd2);
             console.ClearOutput();
-            console.StartProcess(py, arg);
+            console.StartProcess(list, arg);
         }
-        
+
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             string path = Environment.CurrentDirectory;
-            File.Delete("lib.zip");
-            File.Delete("xlsx.bat");
-            File.Delete("common.py");
-            File.Delete("get-pip.py");
-            File.Delete("pkg_list.py");
-            File.Delete("pkg_parser.py");
-            File.Delete("pkg_rename.py");
-            File.Delete("xlsxlist.py");
-            File.Delete("python-2.7.8.msi");
-            Directory.Delete(path + "\\lib", true);
+            File.Delete("pkg_list.exe");
+            File.Delete("rename1.exe");
+            File.Delete("rename2.exe");
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -100,8 +96,66 @@ namespace PKG_TOOL_GUI
 
         private void pythonSetupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Python_Tool Python_Tool = new Python_Tool();
-            Python_Tool.ShowDialog();
+            if (Isconnected == true)
+            {
+
+                if (Directory.Exists(@"E:\Python27\Lib\site-packages\pip") || Directory.Exists(@"C:\Python27\Lib\site-packages\pip"))
+                {
+                    MessageBox.Show("PIP already installed.");
+
+
+                }
+                else
+                {
+                    string path = Environment.CurrentDirectory;
+                    Extract("PKG_TOOL_GUI", path, "MyResources", "get-pip.py");
+
+                    //console.WriteOutput("Checking..\n", System.Drawing.Color.Gray);
+
+                    cmd1 = " ";
+                    py = "python";
+                    arg = (cmd1 + pip);
+
+                    //Old method
+                    //var process = System.Diagnostics.Process.Start(py, arg);
+
+                    ProcessStartInfo startInfo = new ProcessStartInfo(py, arg);
+                    startInfo.WindowStyle = ProcessWindowStyle.Minimized; //make program run hidden
+                    Process wait = Process.Start(startInfo); //set new var for waitforexit()
+                    wait.WaitForExit();
+                    File.Delete("get-pip.py");
+                }
+
+                // E: is my directory >.<
+                if (Directory.Exists(@"E:\Python27\Lib\site-packages\xlsxwriter") || Directory.Exists(@"C:\Python27\Lib\site-packages\xlsxwriter"))
+                {
+                    MessageBox.Show("XLSX Writer already installed.", "Info");
+
+                }
+                else
+                {
+                    string path = Environment.CurrentDirectory;
+
+                    Extract("PKG_TOOL_GUI", path, "MyResources", "xlsx.bat");
+                    Extract("PKG_TOOL_GUI", path, "MyResources", "xlsxlist.py");
+
+
+                    ProcessStartInfo startInfo = new ProcessStartInfo(xlsx, null);
+                    startInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                    Process.Start(startInfo);
+
+                    //console.StartProcess(xlsx, null);
+                    MessageBox.Show("XlSX Writer installed.");
+
+                    File.Delete("xlsx.bat");
+                    File.Delete("xlsxlist.py");
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("No internet connection detected. Please check your connection.", "Connection error");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -114,16 +168,7 @@ namespace PKG_TOOL_GUI
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            path = textOpen.Text;
-            cmd3 = " -3 -d";
-            cmd1 = " ";
-            py = "python";
-            arg = (rename + cmd1 + path + cmd3);
-            console.ClearOutput();
-            console.StartProcess(py, arg);
-        }
+        
 
         private static void Extract(string nameSpace, string outDirectory, string internalFilePath, string resourceName)
         {
@@ -141,25 +186,23 @@ namespace PKG_TOOL_GUI
 
         }
 
+        private void howToUseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("- Load folder containing PS4 PKG.\n- Select name format to change the PKG name or export PKG list to xlsx sheet.", "How to use");
+        }
+
+        private void aboutPS4PKGToolGuiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("GUI version of N1ghty's PKG Tool to handle PS4 PKG (rename and export PKG list)", "About PS4 PKG Tool GUI");
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             string path = Environment.CurrentDirectory;
 
-            if (Directory.Exists(path + "\\lib"))
-            {
-                Directory.Delete(path + "\\lib", true);
-            }
-
-            Extract("PKG_TOOL_GUI", path, "MyResources", "lib.zip");
-            Extract("PKG_TOOL_GUI", path, "MyResources", "xlsx.bat");
-            Extract("PKG_TOOL_GUI", path, "MyResources", "common.py");
-            Extract("PKG_TOOL_GUI", path, "MyResources", "get-pip.py");
-            Extract("PKG_TOOL_GUI", path, "MyResources", "pkg_list.py");
-            Extract("PKG_TOOL_GUI", path, "MyResources", "pkg_parser.py");
-            Extract("PKG_TOOL_GUI", path, "MyResources", "pkg_rename.py");
-            Extract("PKG_TOOL_GUI", path, "MyResources", "xlsxlist.py");
-            Extract("PKG_TOOL_GUI", path, "MyResources", "python-2.7.8.msi");
-            ZipFile.ExtractToDirectory(@"lib.zip", path);
+            Extract("PKG_TOOL_GUI", path, "MyResources", "pkg_list.exe");
+            Extract("PKG_TOOL_GUI", path, "MyResources", "rename1.exe");
+            Extract("PKG_TOOL_GUI", path, "MyResources", "rename2.exe");
 
         }
 
@@ -183,14 +226,14 @@ namespace PKG_TOOL_GUI
                     string[] fileNames = Directory.GetFiles(dirPath, "*.pkg", SearchOption.TopDirectoryOnly);
                     if (fileNames.Length != 0)
                     {
-                        MessageBox.Show("PKG files detected in (" + textOpen.Text + ").\nChoose to Rename or Export the PKG.");
+                        MessageBox.Show("PKG files detected in (" + textOpen.Text + ").\nChoose to Rename or Export the PKG.", "Info");
                         btnRename.Enabled = true;
                         btnList.Enabled = true;
                         btnRefreshList.Enabled = true;
                     }
                     else
                     {
-                        MessageBox.Show("No PKG files detected in (" + textOpen.Text + ").");
+                        MessageBox.Show("No PKG files detected in (" + textOpen.Text + ").","Error");
 
                         btnRename.Enabled = false;
                         btnList.Enabled = false;
@@ -215,73 +258,49 @@ namespace PKG_TOOL_GUI
             else if ( comboBox1.SelectedItem == "TITLE")
             {
                 path = textOpen.Text;
-                cmd3 = " -1 -d";
+                cmd3 = " -c %TITLE% -d";
                 cmd1 = " ";
-                py = "python";
-                arg = (rename + cmd1 + path + cmd3);
+                arg = (cmd1 + path + cmd3);
                 console.ClearOutput();
-                console.StartProcess(py, arg);
-            }
-            else if (comboBox1.SelectedItem == "TITLE_ID")
-            {
-                path = textOpen.Text;
-                cmd3 = " -2 -d";
-                cmd1 = " ";
-                py = "python";
-                arg = (rename + cmd1 + path + cmd3);
-                console.ClearOutput();
-                console.StartProcess(py, arg);
+                console.StartProcess(rename2, arg);
             }
             else if (comboBox1.SelectedItem == "CONTENT_ID")
             {
                 path = textOpen.Text;
-                cmd3 = " -3 -d";
+                cmd3 = " -c %CONTENT_ID% -d";
                 cmd1 = " ";
-                py = "python";
-                arg = (rename + cmd1 + path + cmd3);
+                arg = (cmd1 + path + cmd3);
                 console.ClearOutput();
-                console.StartProcess(py, arg);
+                console.StartProcess(rename1, arg);
             }
             else if (comboBox1.SelectedItem == "TITLE (TITLE_ID)")
             {
                 path = textOpen.Text;
-                cmd3 = " -4 -d";
+                cmd3 = " -1 -d";
                 cmd1 = " ";
-                py = "python";
-                arg = (rename + cmd1 + path + cmd3);
+                arg = (cmd1 + path + cmd3);
                 console.ClearOutput();
-                console.StartProcess(py, arg);
+                console.StartProcess(rename2, arg);
             }
             else if (comboBox1.SelectedItem == "TITLE (REGION)")
             {
                 path = textOpen.Text;
-                cmd3 = " -5 -d";
+                cmd3 = " -2 -d";
                 cmd1 = " ";
-                py = "python";
-                arg = (rename + cmd1 + path + cmd3);
+                arg = (cmd1 + path + cmd3);
                 console.ClearOutput();
-                console.StartProcess(py, arg);
+                console.StartProcess(rename2, arg);
             }
             else if (comboBox1.SelectedItem == "TITLE (TITLE_ID) [VERSION]")
             {
                 path = textOpen.Text;
                 cmd3 = " -n -d";
                 cmd1 = " ";
-                py = "python";
-                arg = (rename + cmd1 + path + cmd3);
+                arg = (cmd1 + path + cmd3);
                 console.ClearOutput();
-                console.StartProcess(py, arg);
+                console.StartProcess(rename1, arg);
             }
-            else if (comboBox1.SelectedItem == "TITLE (TITLE_ID) [REGION]")
-            {
-                path = textOpen.Text;
-                cmd3 = " -6 -d";
-                cmd1 = " ";
-                py = "python";
-                arg = (rename + cmd1 + path + cmd3);
-                console.ClearOutput();
-                console.StartProcess(py, arg);
-            }
+            
 
 
             //path = textOpen.Text;

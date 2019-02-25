@@ -72,12 +72,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Python Tool.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Python Tool.Designer.cs">
-      <DependentUpon>Python Tool.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,12 +84,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MyResources\python-2.7.8.msi" />
-    <EmbeddedResource Include="MyResources\xlsx.bat" />
-    <EmbeddedResource Include="MyResources\lib.zip" />
-    <EmbeddedResource Include="Python Tool.resx">
-      <DependentUpon>Python Tool.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
@@ -113,16 +101,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MyResources\common.py" />
-    <EmbeddedResource Include="MyResources\get-pip.py" />
-    <EmbeddedResource Include="MyResources\pkg_list.py" />
-    <EmbeddedResource Include="MyResources\pkg_parser.py" />
-    <EmbeddedResource Include="MyResources\xlsxlist.py" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="MyResources\pkg_rename.py" />
-  </ItemGroup>
-  <ItemGroup>
+    <EmbeddedResource Include="MyResources\pkg_list.exe" />
+    <EmbeddedResource Include="MyResources\rename1.exe" />
+    <EmbeddedResource Include="MyResources\rename2.exe" />
     <Content Include="PackageIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
