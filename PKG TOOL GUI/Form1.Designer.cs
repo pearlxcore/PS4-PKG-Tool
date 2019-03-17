@@ -31,28 +31,28 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnList = new System.Windows.Forms.Button();
-            this.btnRefreshList = new System.Windows.Forms.Button();
-            this.btnRename = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textOpen = new System.Windows.Forms.TextBox();
-            this.buttonOpen = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.console = new ConsoleControl.ConsoleControl();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutPS4PKGToolGuiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.howToUseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.metroRename = new MetroFramework.Controls.MetroButton();
+            this.metroOpen = new MetroFramework.Controls.MetroButton();
+            this.metroRefresh = new MetroFramework.Controls.MetroButton();
+            this.metroList = new MetroFramework.Controls.MetroButton();
+            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroLink1 = new MetroFramework.Controls.MetroLink();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -60,224 +60,234 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(112, 408);
+            this.label2.Location = new System.Drawing.Point(140, 408);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 39;
             // 
-            // groupBox3
+            // dataGridView1
             // 
-            this.groupBox3.Controls.Add(this.comboBox1);
-            this.groupBox3.Controls.Add(this.btnList);
-            this.groupBox3.Controls.Add(this.btnRefreshList);
-            this.groupBox3.Controls.Add(this.btnRename);
-            this.groupBox3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.Silver;
-            this.groupBox3.Location = new System.Drawing.Point(12, 99);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(591, 59);
-            this.groupBox3.TabIndex = 35;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Rename/Export PKG";
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dataGridView1.GridColor = System.Drawing.Color.Red;
+            this.dataGridView1.Location = new System.Drawing.Point(23, 272);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(593, 261);
+            this.dataGridView1.TabIndex = 27;
             // 
-            // comboBox1
+            // Column1
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "TITLE",
-            "CONTENT_ID",
-            "TITLE (TITLE_ID)",
-            "TITLE (REGION)",
-            "TITLE (TITLE_ID) [VERSION]"});
-            this.comboBox1.Location = new System.Drawing.Point(10, 25);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 22);
-            this.comboBox1.TabIndex = 41;
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "PKG Name";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // btnList
+            // Column2
             // 
-            this.btnList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnList.Enabled = false;
-            this.btnList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnList.Location = new System.Drawing.Point(455, 25);
-            this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(125, 22);
-            this.btnList.TabIndex = 3;
-            this.btnList.Text = "Export PKG List";
-            this.btnList.UseVisualStyleBackColor = false;
-            this.btnList.Click += new System.EventHandler(this.btnList_Click);
-            // 
-            // btnRefreshList
-            // 
-            this.btnRefreshList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnRefreshList.Enabled = false;
-            this.btnRefreshList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRefreshList.Location = new System.Drawing.Point(324, 25);
-            this.btnRefreshList.Name = "btnRefreshList";
-            this.btnRefreshList.Size = new System.Drawing.Size(125, 22);
-            this.btnRefreshList.TabIndex = 27;
-            this.btnRefreshList.Text = "Refresh PKG List";
-            this.btnRefreshList.UseVisualStyleBackColor = false;
-            this.btnRefreshList.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnRename
-            // 
-            this.btnRename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnRename.Enabled = false;
-            this.btnRename.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRename.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRename.Location = new System.Drawing.Point(193, 25);
-            this.btnRename.Name = "btnRename";
-            this.btnRename.Size = new System.Drawing.Size(125, 22);
-            this.btnRename.TabIndex = 2;
-            this.btnRename.Text = "Rename PKG";
-            this.btnRename.UseVisualStyleBackColor = false;
-            this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textOpen);
-            this.groupBox2.Controls.Add(this.buttonOpen);
-            this.groupBox2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.Silver;
-            this.groupBox2.Location = new System.Drawing.Point(12, 41);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(591, 52);
-            this.groupBox2.TabIndex = 37;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "PKG Directory";
-            // 
-            // textOpen
-            // 
-            this.textOpen.BackColor = System.Drawing.SystemColors.InfoText;
-            this.textOpen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textOpen.ForeColor = System.Drawing.Color.Silver;
-            this.textOpen.Location = new System.Drawing.Point(6, 21);
-            this.textOpen.Name = "textOpen";
-            this.textOpen.ReadOnly = true;
-            this.textOpen.Size = new System.Drawing.Size(498, 22);
-            this.textOpen.TabIndex = 1;
-            // 
-            // buttonOpen
-            // 
-            this.buttonOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonOpen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonOpen.ForeColor = System.Drawing.Color.Silver;
-            this.buttonOpen.Location = new System.Drawing.Point(510, 21);
-            this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(75, 22);
-            this.buttonOpen.TabIndex = 0;
-            this.buttonOpen.Text = "Open Folder";
-            this.buttonOpen.UseVisualStyleBackColor = false;
-            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.console);
-            this.groupBox1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.Silver;
-            this.groupBox1.Location = new System.Drawing.Point(12, 164);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(591, 329);
-            this.groupBox1.TabIndex = 34;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Log";
-            // 
-            // console
-            // 
-            this.console.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.console.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.console.ForeColor = System.Drawing.Color.Gray;
-            this.console.IsInputEnabled = false;
-            this.console.Location = new System.Drawing.Point(6, 22);
-            this.console.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.console.Name = "console";
-            this.console.SendKeyboardCommandsToProcess = false;
-            this.console.ShowDiagnostics = false;
-            this.console.Size = new System.Drawing.Size(579, 300);
-            this.console.TabIndex = 26;
+            this.Column2.HeaderText = "Size (MB)";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // timer1
             // 
             this.timer1.Interval = 2000;
             // 
-            // menuStrip1
+            // metroRename
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.aboutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(615, 24);
-            this.menuStrip1.TabIndex = 40;
-            this.menuStrip1.Text = "menuStrip1";
+            this.metroRename.Enabled = false;
+            this.metroRename.Highlight = true;
+            this.metroRename.Location = new System.Drawing.Point(225, 34);
+            this.metroRename.Name = "metroRename";
+            this.metroRename.Size = new System.Drawing.Size(107, 50);
+            this.metroRename.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroRename.TabIndex = 2;
+            this.metroRename.Text = "Rename PKG";
+            this.metroRename.Click += new System.EventHandler(this.metroRename_Click);
             // 
-            // fileToolStripMenuItem
+            // metroOpen
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.metroOpen.Highlight = true;
+            this.metroOpen.Location = new System.Drawing.Point(455, 33);
+            this.metroOpen.Name = "metroOpen";
+            this.metroOpen.Size = new System.Drawing.Size(107, 23);
+            this.metroOpen.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroOpen.TabIndex = 41;
+            this.metroOpen.Text = "Select Folder";
+            this.metroOpen.Click += new System.EventHandler(this.metroOpen_Click);
             // 
-            // exitToolStripMenuItem
+            // metroRefresh
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.metroRefresh.Enabled = false;
+            this.metroRefresh.Highlight = true;
+            this.metroRefresh.Location = new System.Drawing.Point(340, 34);
+            this.metroRefresh.Name = "metroRefresh";
+            this.metroRefresh.Size = new System.Drawing.Size(107, 50);
+            this.metroRefresh.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroRefresh.TabIndex = 42;
+            this.metroRefresh.Text = "Refresh PKG";
+            this.metroRefresh.Click += new System.EventHandler(this.metroRefresh_Click);
             // 
-            // aboutToolStripMenuItem
+            // metroList
             // 
-            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutPS4PKGToolGuiToolStripMenuItem,
-            this.howToUseToolStripMenuItem});
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.metroList.Enabled = false;
+            this.metroList.Highlight = true;
+            this.metroList.Location = new System.Drawing.Point(455, 34);
+            this.metroList.Name = "metroList";
+            this.metroList.Size = new System.Drawing.Size(107, 50);
+            this.metroList.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroList.TabIndex = 43;
+            this.metroList.Text = "Export PKG List";
+            this.metroList.Click += new System.EventHandler(this.metroList_Click);
             // 
-            // aboutPS4PKGToolGuiToolStripMenuItem
+            // metroCheckBox1
             // 
-            this.aboutPS4PKGToolGuiToolStripMenuItem.Name = "aboutPS4PKGToolGuiToolStripMenuItem";
-            this.aboutPS4PKGToolGuiToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.aboutPS4PKGToolGuiToolStripMenuItem.Text = "About PS4 PKG Tool GUI";
-            this.aboutPS4PKGToolGuiToolStripMenuItem.Click += new System.EventHandler(this.aboutPS4PKGToolGuiToolStripMenuItem_Click);
+            this.metroCheckBox1.AutoSize = true;
+            this.metroCheckBox1.Location = new System.Drawing.Point(30, 69);
+            this.metroCheckBox1.Name = "metroCheckBox1";
+            this.metroCheckBox1.Size = new System.Drawing.Size(115, 15);
+            this.metroCheckBox1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroCheckBox1.TabIndex = 44;
+            this.metroCheckBox1.Text = "Include subfolder";
+            this.metroCheckBox1.UseStyleColors = true;
+            this.metroCheckBox1.UseVisualStyleBackColor = true;
             // 
-            // howToUseToolStripMenuItem
+            // metroComboBox1
             // 
-            this.howToUseToolStripMenuItem.Name = "howToUseToolStripMenuItem";
-            this.howToUseToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.howToUseToolStripMenuItem.Text = "How to use";
-            this.howToUseToolStripMenuItem.Click += new System.EventHandler(this.howToUseToolStripMenuItem_Click);
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 23;
+            this.metroComboBox1.Items.AddRange(new object[] {
+            "TITLE",
+            "CONTENT_ID",
+            "TITLE (TITLE_ID)",
+            "TITLE (REGION)",
+            "TITLE (TITLE_ID) [VERSION]"});
+            this.metroComboBox1.Location = new System.Drawing.Point(30, 34);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.Size = new System.Drawing.Size(187, 29);
+            this.metroComboBox1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroComboBox1.TabIndex = 45;
+            // 
+            // metroTextBox1
+            // 
+            this.metroTextBox1.Location = new System.Drawing.Point(29, 33);
+            this.metroTextBox1.Name = "metroTextBox1";
+            this.metroTextBox1.ReadOnly = true;
+            this.metroTextBox1.Size = new System.Drawing.Size(418, 23);
+            this.metroTextBox1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroTextBox1.TabIndex = 46;
+            this.metroTextBox1.UseStyleColors = true;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(6, -2);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(138, 19);
+            this.metroLabel1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroLabel1.TabIndex = 48;
+            this.metroLabel1.Text = "Select PS4 PKG Folder";
+            this.metroLabel1.UseStyleColors = true;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(6, -2);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(107, 19);
+            this.metroLabel2.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroLabel2.TabIndex = 49;
+            this.metroLabel2.Text = "Select Operation";
+            this.metroLabel2.UseStyleColors = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.metroLabel2);
+            this.groupBox1.Controls.Add(this.metroRename);
+            this.groupBox1.Controls.Add(this.metroComboBox1);
+            this.groupBox1.Controls.Add(this.metroList);
+            this.groupBox1.Controls.Add(this.metroRefresh);
+            this.groupBox1.Controls.Add(this.metroCheckBox1);
+            this.groupBox1.Location = new System.Drawing.Point(23, 161);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(593, 105);
+            this.groupBox1.TabIndex = 50;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.metroTextBox1);
+            this.groupBox2.Controls.Add(this.metroLabel1);
+            this.groupBox2.Controls.Add(this.metroOpen);
+            this.groupBox2.Location = new System.Drawing.Point(23, 75);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(593, 82);
+            this.groupBox2.TabIndex = 51;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Highlight = true;
+            this.metroButton1.Location = new System.Drawing.Point(590, 46);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(26, 23);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroButton1.TabIndex = 49;
+            this.metroButton1.Text = "?";
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // metroLink1
+            // 
+            this.metroLink1.FontWeight = MetroFramework.MetroLinkWeight.Light;
+            this.metroLink1.Location = new System.Drawing.Point(285, 46);
+            this.metroLink1.Name = "metroLink1";
+            this.metroLink1.Size = new System.Drawing.Size(75, 23);
+            this.metroLink1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroLink1.TabIndex = 52;
+            this.metroLink1.Text = "By pearlxcore";
+            this.metroLink1.UseStyleColors = true;
+            this.metroLink1.Click += new System.EventHandler(this.metroLink1_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(615, 505);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.groupBox3);
+            this.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
+            this.ClientSize = new System.Drawing.Size(639, 568);
+            this.Controls.Add(this.metroLink1);
+            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dataGridView1);
+            this.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PS4 PKG Tool | Credit To cfwprophet And nighty |";
+            this.Resizable = false;
+            this.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.DropShadow;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.Style = MetroFramework.MetroColorStyle.Red;
+            this.Text = "PS4 PKG Tool";
+            this.TextAlign = System.Windows.Forms.VisualStyles.HorizontalAlign.Center;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,24 +296,25 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnRename;
-        private System.Windows.Forms.Button btnList;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textOpen;
-        private System.Windows.Forms.Button buttonOpen;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private ConsoleControl.ConsoleControl console;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.Button btnRefreshList;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutPS4PKGToolGuiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem howToUseToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private MetroFramework.Controls.MetroButton metroRename;
+        private MetroFramework.Controls.MetroButton metroOpen;
+        private MetroFramework.Controls.MetroButton metroRefresh;
+        private MetroFramework.Controls.MetroButton metroList;
+        private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
+        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroLink metroLink1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

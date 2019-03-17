@@ -9,17 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
-using Tools;
-using ConsoleControl;
 using System.Net;
 using System.Net.Sockets;
 using System.Net.NetworkInformation;
 using System.Reflection;
 using System.IO.Compression;
+using ByteSizeLib;
 
 namespace PKG_TOOL_GUI
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         static byte[] bufferA = new byte[0];
         
@@ -29,10 +28,10 @@ namespace PKG_TOOL_GUI
         static string xlsx = @"xlsx.bat";
         static string rename1 = @"rename1.exe";
         static string rename2 = @"rename2.exe";
-
+        static string paths = Environment.CurrentDirectory;
         static string list = @"pkg_list.exe";
+        long length;
         static string cmd1, cmd2, cmd3, path, arg, py;
-
         public static bool Isconnected = true;
 
         public static bool CheckForInternetConnection()
@@ -68,19 +67,7 @@ namespace PKG_TOOL_GUI
         {
             InitializeComponent();
         }
-
         
-
-        private void btnList_Click(object sender, EventArgs e)
-        {
-            path = textOpen.Text;
-            cmd2 = " -d";
-            cmd1 = " ";
-            arg = (cmd1 + path + cmd2);
-            console.ClearOutput();
-            console.StartProcess(list, arg);
-        }
-
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             string path = Environment.CurrentDirectory;
@@ -116,8 +103,6 @@ namespace PKG_TOOL_GUI
                     py = "python";
                     arg = (cmd1 + pip);
 
-                    //Old method
-                    //var process = System.Diagnostics.Process.Start(py, arg);
 
                     ProcessStartInfo startInfo = new ProcessStartInfo(py, arg);
                     startInfo.WindowStyle = ProcessWindowStyle.Minimized; //make program run hidden
@@ -144,7 +129,6 @@ namespace PKG_TOOL_GUI
                     startInfo.WindowStyle = ProcessWindowStyle.Minimized;
                     Process.Start(startInfo);
 
-                    //console.StartProcess(xlsx, null);
                     MessageBox.Show("XlSX Writer installed.");
 
                     File.Delete("xlsx.bat");
@@ -157,19 +141,7 @@ namespace PKG_TOOL_GUI
                 MessageBox.Show("No internet connection detected. Please check your connection.", "Connection error");
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            console.ClearOutput();
-            DirectoryInfo d = new DirectoryInfo(textOpen.Text);
-            foreach (var file in d.GetFiles("*.PKG"))
-            {
-                console.WriteOutput("> " + file.ToString() + "\n", Color.Silver);
-            }
-        }
-
         
-
         private static void Extract(string nameSpace, string outDirectory, string internalFilePath, string resourceName)
         {
             Assembly assembly = Assembly.GetCallingAssembly();
@@ -185,15 +157,204 @@ namespace PKG_TOOL_GUI
                 w.Write(r.ReadBytes((int)s.Length));
 
         }
-
-        private void howToUseToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        private void metroOpen_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("- Load folder containing PS4 PKG.\n- Select name format to change the PKG name or export PKG list to xlsx sheet.", "How to use");
+            using (var folderDialog = new FolderBrowserDialog())
+            {
+                if (folderDialog.ShowDialog() == DialogResult.OK)
+                {
+                    metroTextBox1.Text = folderDialog.SelectedPath;
+
+
+                    string[] allfiles = Directory.GetFiles(metroTextBox1.Text, "*.PKG", SearchOption.TopDirectoryOnly);
+                    foreach (var file in allfiles)
+                    {
+                        length = new System.IO.FileInfo(file).Length;
+                        var temp = ByteSize.FromBytes(length); //wtfackk!
+                        var MB = temp.MegaBytes;
+                        var result = Path.GetFileName(file); //wtfackk!
+                        dataGridView1.Rows.Add(result, MB.ToString("#####"));
+                    }
+                    if (allfiles.Length != 0)
+                    {
+                        metroRename.Enabled = true;
+                        metroList.Enabled = true;
+                        metroRefresh.Enabled = true;
+                        metroComboBox1.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No PKG files detected in (" + metroTextBox1.Text + ").", "Error");
+
+                        metroRename.Enabled = false;
+                        metroList.Enabled = false;
+                        metroRefresh.Enabled = false;
+                    }
+                }
+            }
         }
 
-        private void aboutPS4PKGToolGuiToolStripMenuItem_Click(object sender, EventArgs e)
+        private void metroRename_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("GUI version of N1ghty's PKG Tool to handle PS4 PKG (rename and export PKG list)", "About PS4 PKG Tool GUI");
+            if (metroComboBox1.SelectedItem == "Select Name Format")
+            {
+
+            }
+            else if (metroComboBox1.SelectedItem == "TITLE")
+            {
+                path = metroTextBox1.Text;
+                cmd3 = "\" -c %TITLE% -d";
+                cmd1 = " \"";
+                if (metroCheckBox1.Checked)
+                {
+                    arg = (cmd1 + path + cmd3 + " -r");
+                }
+                else
+                {
+                    arg = (cmd1 + path + cmd3);
+                }
+                Process p = new Process();
+                p.StartInfo.FileName = "rename2.exe";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.Arguments = arg;
+                p.Start();
+                p.WaitForExit();
+
+
+            }
+            else if (metroComboBox1.SelectedItem == "CONTENT_ID")
+            {
+                path = metroTextBox1.Text;
+                cmd3 = "\" -c %CONTENT_ID% -d";
+                cmd1 = " \"";
+                if (metroCheckBox1.Checked)
+                {
+                    arg = (cmd1 + path + cmd3 + " -r");
+                }
+                else
+                {
+                    arg = (cmd1 + path + cmd3);
+                }
+                Process p = new Process();
+                p.StartInfo.FileName = "rename1.exe";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.Arguments = arg;
+                p.Start();
+                p.WaitForExit();
+
+
+            }
+            else if (metroComboBox1.SelectedItem == "TITLE (TITLE_ID)")
+            {
+                path = metroTextBox1.Text;
+                cmd3 = "\" -1 -d";
+                cmd1 = " \"";
+                if (metroCheckBox1.Checked)
+                {
+                    arg = (cmd1 + path + cmd3 + " -r");
+                }
+                else
+                {
+                    arg = (cmd1 + path + cmd3);
+                }
+                Process p = new Process();
+                p.StartInfo.FileName = "rename2.exe";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.Arguments = arg;
+                p.Start();
+                p.WaitForExit();
+            }
+            else if (metroComboBox1.SelectedItem == "TITLE (REGION)")
+            {
+                path = metroTextBox1.Text;
+                cmd3 = "\" -2 -d";
+                cmd1 = " \"";
+                if (metroCheckBox1.Checked)
+                {
+                    arg = (cmd1 + path + cmd3 + " -r");
+                }
+                else
+                {
+                    arg = (cmd1 + path + cmd3);
+                }
+                Process p = new Process();
+                p.StartInfo.FileName = "rename2.exe";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.Arguments = arg;
+                p.Start();
+                p.WaitForExit();
+            }
+            else if (metroComboBox1.SelectedItem == "TITLE (TITLE_ID) [VERSION]")
+            {
+                path = metroTextBox1.Text;
+                cmd3 = "\" -n -d";
+                cmd1 = " \"";
+                if (metroCheckBox1.Checked)
+                {
+                    arg = (cmd1 + path + cmd3 + " -r");
+                }
+                else
+                {
+                    arg = (cmd1 + path + cmd3);
+                }
+                Process p = new Process();
+                p.StartInfo.FileName = "rename1.exe";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.Arguments = arg;
+                p.Start();
+                p.WaitForExit();
+            }
+
+            dataGridView1.Rows.Clear();
+            DirectoryInfo d = new DirectoryInfo(metroTextBox1.Text);
+            foreach (var file in d.GetFiles("*.PKG"))
+            {
+                length = new System.IO.FileInfo(file.FullName).Length;
+                var temp = ByteSize.FromBytes(length);
+                var MB = temp.MegaBytes;
+                dataGridView1.Rows.Add(file, MB.ToString("#####.##"));
+
+            }
+        }
+
+        private void metroLink1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/pearlxcore");
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            About About = new About();
+            About.ShowDialog();
+        }
+
+        private void metroRefresh_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            DirectoryInfo d = new DirectoryInfo(metroTextBox1.Text);
+            foreach (var file in d.GetFiles("*.PKG"))
+            {
+                length = new System.IO.FileInfo(file.FullName).Length;
+                var temp = ByteSize.FromBytes(length);
+                var MB = temp.MegaBytes;
+                dataGridView1.Rows.Add(file, MB.ToString("#####.##"));
+            }
+        }
+
+        private void metroList_Click(object sender, EventArgs e)
+        {
+            path = metroTextBox1.Text;
+            cmd2 = "\" -d";
+            cmd1 = " \"";
+            arg = (cmd1 + path + cmd2);
+            Process p = new Process();
+            p.StartInfo.FileName = "pkg_list.exe";
+            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p.StartInfo.Arguments = arg;
+            p.Start();
+            p.WaitForExit();
+            System.Diagnostics.Process.Start("PKG_List.xlsx");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -205,111 +366,10 @@ namespace PKG_TOOL_GUI
             Extract("PKG_TOOL_GUI", path, "MyResources", "rename2.exe");
 
         }
-
-        private void buttonOpen_Click(object sender, EventArgs e)
+        
+        static string ConvertToGigabytes(ulong bytes)
         {
-            using (var folderDialog = new FolderBrowserDialog())
-            {
-                if (folderDialog.ShowDialog() == DialogResult.OK)
-                {
-                    textOpen.Text = folderDialog.SelectedPath;
-
-                    console.ClearOutput();
-
-                    DirectoryInfo d = new DirectoryInfo(textOpen.Text);
-
-                    foreach (var file in d.GetFiles("*.PKG"))
-                    {
-                                console.WriteOutput("> " + file.ToString() + "\n", Color.Silver);
-                    }
-                    string dirPath = textOpen.Text;
-                    string[] fileNames = Directory.GetFiles(dirPath, "*.pkg", SearchOption.TopDirectoryOnly);
-                    if (fileNames.Length != 0)
-                    {
-                        MessageBox.Show("PKG files detected in (" + textOpen.Text + ").\nChoose to Rename or Export the PKG.", "Info");
-                        btnRename.Enabled = true;
-                        btnList.Enabled = true;
-                        btnRefreshList.Enabled = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("No PKG files detected in (" + textOpen.Text + ").","Error");
-
-                        btnRename.Enabled = false;
-                        btnList.Enabled = false;
-                        btnRefreshList.Enabled = false;
-                    }
-                }
-            }
-        }
-
-        private void btnCleartxt_Click(object sender, EventArgs e)
-        {
-            textOpen.Clear();
-            console.ClearOutput();
-        }
-
-        private void btnRename_Click(object sender, EventArgs e)
-        {
-            if (comboBox1.SelectedItem == "Select Name Format")
-            {
-
-            }
-            else if ( comboBox1.SelectedItem == "TITLE")
-            {
-                path = textOpen.Text;
-                cmd3 = " -c %TITLE% -d";
-                cmd1 = " ";
-                arg = (cmd1 + path + cmd3);
-                console.ClearOutput();
-                console.StartProcess(rename2, arg);
-            }
-            else if (comboBox1.SelectedItem == "CONTENT_ID")
-            {
-                path = textOpen.Text;
-                cmd3 = " -c %CONTENT_ID% -d";
-                cmd1 = " ";
-                arg = (cmd1 + path + cmd3);
-                console.ClearOutput();
-                console.StartProcess(rename1, arg);
-            }
-            else if (comboBox1.SelectedItem == "TITLE (TITLE_ID)")
-            {
-                path = textOpen.Text;
-                cmd3 = " -1 -d";
-                cmd1 = " ";
-                arg = (cmd1 + path + cmd3);
-                console.ClearOutput();
-                console.StartProcess(rename2, arg);
-            }
-            else if (comboBox1.SelectedItem == "TITLE (REGION)")
-            {
-                path = textOpen.Text;
-                cmd3 = " -2 -d";
-                cmd1 = " ";
-                arg = (cmd1 + path + cmd3);
-                console.ClearOutput();
-                console.StartProcess(rename2, arg);
-            }
-            else if (comboBox1.SelectedItem == "TITLE (TITLE_ID) [VERSION]")
-            {
-                path = textOpen.Text;
-                cmd3 = " -n -d";
-                cmd1 = " ";
-                arg = (cmd1 + path + cmd3);
-                console.ClearOutput();
-                console.StartProcess(rename1, arg);
-            }
-            
-
-
-            //path = textOpen.Text;
-            //cmd3 = " -d";
-            //cmd1 = " ";
-            //py = "python";
-            //arg = (rename + cmd1 + path + cmd3);
-            //console.ClearOutput();
-            //console.StartProcess(py, arg);
+            return ((decimal)bytes / 1024M / 1024M / 1024M).ToString("F1") + "GB";
         }
     }
 }
