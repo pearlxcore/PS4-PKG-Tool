@@ -22,7 +22,10 @@ namespace PKG_TOOL_GUI
     {
         static byte[] bufferA = new byte[0];
         
-        static byte[] PKGHeader = new byte[16];
+        static byte[] PKGHeader = new byte[16] 
+        {
+            0x7F, 0x43, 0x4E, 0x54, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0F,
+        };
 
         static string pip = @"get-pip.py";
         static string xlsx = @"xlsx.bat";
@@ -160,6 +163,9 @@ namespace PKG_TOOL_GUI
         
         private void metroOpen_Click(object sender, EventArgs e)
         {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+
             using (var folderDialog = new FolderBrowserDialog())
             {
                 if (folderDialog.ShowDialog() == DialogResult.OK)
@@ -168,6 +174,7 @@ namespace PKG_TOOL_GUI
 
 
                     string[] allfiles = Directory.GetFiles(metroTextBox1.Text, "*.PKG", SearchOption.TopDirectoryOnly);
+                    
                     foreach (var file in allfiles)
                     {
                         length = new System.IO.FileInfo(file).Length;
@@ -197,130 +204,162 @@ namespace PKG_TOOL_GUI
 
         private void metroRename_Click(object sender, EventArgs e)
         {
-            if (metroComboBox1.SelectedItem == "Select Name Format")
-            {
-
-            }
-            else if (metroComboBox1.SelectedItem == "TITLE")
-            {
-                path = metroTextBox1.Text;
-                cmd3 = "\" -c %TITLE% -d";
-                cmd1 = " \"";
-                if (metroCheckBox1.Checked)
-                {
-                    arg = (cmd1 + path + cmd3 + " -r");
-                }
-                else
-                {
-                    arg = (cmd1 + path + cmd3);
-                }
-                Process p = new Process();
-                p.StartInfo.FileName = "rename2.exe";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                p.StartInfo.Arguments = arg;
-                p.Start();
-                p.WaitForExit();
-
-
-            }
-            else if (metroComboBox1.SelectedItem == "CONTENT_ID")
-            {
-                path = metroTextBox1.Text;
-                cmd3 = "\" -c %CONTENT_ID% -d";
-                cmd1 = " \"";
-                if (metroCheckBox1.Checked)
-                {
-                    arg = (cmd1 + path + cmd3 + " -r");
-                }
-                else
-                {
-                    arg = (cmd1 + path + cmd3);
-                }
-                Process p = new Process();
-                p.StartInfo.FileName = "rename1.exe";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                p.StartInfo.Arguments = arg;
-                p.Start();
-                p.WaitForExit();
-
-
-            }
-            else if (metroComboBox1.SelectedItem == "TITLE (TITLE_ID)")
-            {
-                path = metroTextBox1.Text;
-                cmd3 = "\" -1 -d";
-                cmd1 = " \"";
-                if (metroCheckBox1.Checked)
-                {
-                    arg = (cmd1 + path + cmd3 + " -r");
-                }
-                else
-                {
-                    arg = (cmd1 + path + cmd3);
-                }
-                Process p = new Process();
-                p.StartInfo.FileName = "rename2.exe";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                p.StartInfo.Arguments = arg;
-                p.Start();
-                p.WaitForExit();
-            }
-            else if (metroComboBox1.SelectedItem == "TITLE (REGION)")
-            {
-                path = metroTextBox1.Text;
-                cmd3 = "\" -2 -d";
-                cmd1 = " \"";
-                if (metroCheckBox1.Checked)
-                {
-                    arg = (cmd1 + path + cmd3 + " -r");
-                }
-                else
-                {
-                    arg = (cmd1 + path + cmd3);
-                }
-                Process p = new Process();
-                p.StartInfo.FileName = "rename2.exe";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                p.StartInfo.Arguments = arg;
-                p.Start();
-                p.WaitForExit();
-            }
-            else if (metroComboBox1.SelectedItem == "TITLE (TITLE_ID) [VERSION]")
-            {
-                path = metroTextBox1.Text;
-                cmd3 = "\" -n -d";
-                cmd1 = " \"";
-                if (metroCheckBox1.Checked)
-                {
-                    arg = (cmd1 + path + cmd3 + " -r");
-                }
-                else
-                {
-                    arg = (cmd1 + path + cmd3);
-                }
-                Process p = new Process();
-                p.StartInfo.FileName = "rename1.exe";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                p.StartInfo.Arguments = arg;
-                p.Start();
-                p.WaitForExit();
-            }
-
-            dataGridView1.Rows.Clear();
-            DirectoryInfo d = new DirectoryInfo(metroTextBox1.Text);
-            foreach (var file in d.GetFiles("*.PKG"))
-            {
-                length = new System.IO.FileInfo(file.FullName).Length;
-                var temp = ByteSize.FromBytes(length);
-                var MB = temp.MegaBytes;
-                dataGridView1.Rows.Add(file, MB.ToString("#####.##"));
-
-            }
+            if (backgroundWorker1.IsBusy)
+                backgroundWorker1.CancelAsync();
+            backgroundWorker1.RunWorkerAsync(metroComboBox1.Text);
+            metroProgressBar1.Visible = true;
         }
 
         private void metroLink1_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/pearlxcore");
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            this.Invoke((MethodInvoker)delegate ()
+            {
+                string text = metroComboBox1.Text;
+                if (metroComboBox1.SelectedItem == "")
+                {
+
+                }
+                else if (metroComboBox1.SelectedItem == "TITLE")
+                {
+                    metroProgressBar1.Increment(25);
+                    path = metroTextBox1.Text;
+                    cmd3 = "\" -c %TITLE% -d";
+                    cmd1 = " \"";
+                    if (metroCheckBox1.Checked)
+                    {
+                        arg = (cmd1 + path + cmd3 + " -r");
+                    }
+                    else
+                    {
+                        arg = (cmd1 + path + cmd3);
+                    }
+                    Process p = new Process();
+                    p.StartInfo.FileName = "rename2.exe";
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.Arguments = arg;
+                    p.Start();
+                    metroProgressBar1.Increment(25);
+                    p.WaitForExit();
+                    metroProgressBar1.Increment(25);
+
+                }
+                else if (metroComboBox1.SelectedItem == "CONTENT_ID")
+                {
+                    metroProgressBar1.Increment(25);
+                    path = metroTextBox1.Text;
+                    cmd3 = "\" -c %CONTENT_ID% -d";
+                    cmd1 = " \"";
+                    if (metroCheckBox1.Checked)
+                    {
+                        arg = (cmd1 + path + cmd3 + " -r");
+                    }
+                    else
+                    {
+                        arg = (cmd1 + path + cmd3);
+                    }
+                    Process p = new Process();
+                    p.StartInfo.FileName = "rename1.exe";
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.Arguments = arg;
+                    p.Start();
+                    metroProgressBar1.Increment(25);
+                    p.WaitForExit();
+                    metroProgressBar1.Increment(25);
+
+                }
+                else if (metroComboBox1.SelectedItem == "TITLE (TITLE_ID)")
+                {
+                    metroProgressBar1.Increment(25);
+                    path = metroTextBox1.Text;
+                    cmd3 = "\" -1 -d";
+                    cmd1 = " \"";
+                    if (metroCheckBox1.Checked)
+                    {
+                        arg = (cmd1 + path + cmd3 + " -r");
+                    }
+                    else
+                    {
+                        arg = (cmd1 + path + cmd3);
+                    }
+                    Process p = new Process();
+                    p.StartInfo.FileName = "rename2.exe";
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.Arguments = arg;
+                    p.Start();
+                    metroProgressBar1.Increment(25);
+                    p.WaitForExit();
+                    metroProgressBar1.Increment(25);
+                }
+                else if (metroComboBox1.SelectedItem == "TITLE (REGION)")
+                {
+                    metroProgressBar1.Increment(25);
+                    path = metroTextBox1.Text;
+                    cmd3 = "\" -2 -d";
+                    cmd1 = " \"";
+                    if (metroCheckBox1.Checked)
+                    {
+                        arg = (cmd1 + path + cmd3 + " -r");
+                    }
+                    else
+                    {
+                        arg = (cmd1 + path + cmd3);
+                    }
+                    Process p = new Process();
+                    p.StartInfo.FileName = "rename2.exe";
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.Arguments = arg;
+                    p.Start();
+                    metroProgressBar1.Increment(25);
+                    p.WaitForExit();
+                    metroProgressBar1.Increment(25);
+                }
+                else if (metroComboBox1.SelectedItem == "TITLE (TITLE_ID) [VERSION]")
+                {
+                    metroProgressBar1.Increment(25);
+                    path = metroTextBox1.Text;
+                    cmd3 = "\" -n -d";
+                    cmd1 = " \"";
+                    if (metroCheckBox1.Checked)
+                    {
+                        arg = (cmd1 + path + cmd3 + " -r");
+                    }
+                    else
+                    {
+                        arg = (cmd1 + path + cmd3);
+                    }
+                    Process p = new Process();
+                    p.StartInfo.FileName = "rename1.exe";
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.Arguments = arg;
+                    p.Start();
+                    metroProgressBar1.Increment(25);
+                    p.WaitForExit();
+                    metroProgressBar1.Increment(25);
+                }
+
+                dataGridView1.Rows.Clear();
+                DirectoryInfo d = new DirectoryInfo(metroTextBox1.Text);
+                foreach (var file in d.GetFiles("*.PKG"))
+                {
+                    length = new System.IO.FileInfo(file.FullName).Length;
+                    var temp = ByteSize.FromBytes(length);
+                    var MB = temp.MegaBytes;
+                    dataGridView1.Rows.Add(file, MB.ToString("#####.##"));
+
+                }
+                metroProgressBar1.Increment(25);
+                metroProgressBar1.Visible = false;
+                metroProgressBar1.Value = 0;
+            });
+
+            
+
+            
         }
 
         private void metroButton1_Click(object sender, EventArgs e)

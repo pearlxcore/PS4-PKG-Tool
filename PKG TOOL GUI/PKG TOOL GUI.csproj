@@ -64,6 +64,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tools">
+      <HintPath>..\..\Usefull_Libraries-master\nor4ps\nor4ps\bin\Debug\Tools.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.cs">
