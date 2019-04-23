@@ -268,9 +268,9 @@
             // 
             // metroProgressBar1
             // 
-            this.metroProgressBar1.Location = new System.Drawing.Point(23, 539);
+            this.metroProgressBar1.Location = new System.Drawing.Point(23, 541);
             this.metroProgressBar1.Name = "metroProgressBar1";
-            this.metroProgressBar1.Size = new System.Drawing.Size(593, 12);
+            this.metroProgressBar1.Size = new System.Drawing.Size(593, 17);
             this.metroProgressBar1.TabIndex = 53;
             this.metroProgressBar1.Visible = false;
             // 

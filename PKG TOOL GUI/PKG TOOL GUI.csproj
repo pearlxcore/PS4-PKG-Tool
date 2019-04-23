@@ -98,6 +98,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.manifest">
       <SubType>Designer</SubType>
@@ -117,11 +118,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MyResources\pkg_list.exe" />
-    <EmbeddedResource Include="MyResources\rename1.exe" />
-    <EmbeddedResource Include="MyResources\rename2.exe" />
     <Content Include="MetroFramework.txt" />
     <Content Include="PackageIcon.ico" />
+    <None Include="Resources\rename2.exe" />
+    <None Include="Resources\rename1.exe" />
+    <None Include="Resources\pkg_list.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
