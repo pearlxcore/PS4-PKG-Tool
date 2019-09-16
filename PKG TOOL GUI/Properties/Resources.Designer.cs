@@ -19,7 +19,7 @@ namespace PKG_TOOL_GUI.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,9 +63,9 @@ namespace PKG_TOOL_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] pkg_list {
+        internal static byte[] ext {
             get {
-                object obj = ResourceManager.GetObject("pkg_list", resourceCulture);
+                object obj = ResourceManager.GetObject("ext", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -73,20 +73,20 @@ namespace PKG_TOOL_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] rename1 {
+        internal static byte[] orbis_pub_cmd {
             get {
-                object obj = ResourceManager.GetObject("rename1", resourceCulture);
+                object obj = ResourceManager.GetObject("orbis_pub_cmd", resourceCulture);
                 return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static byte[] rename2 {
+        internal static System.Drawing.Icon PackageIcon {
             get {
-                object obj = ResourceManager.GetObject("rename2", resourceCulture);
-                return ((byte[])(obj));
+                object obj = ResourceManager.GetObject("PackageIcon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

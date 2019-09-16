@@ -25,6 +25,8 @@ namespace PKG_TOOL_GUI
         private void PARAM_Load(object sender, EventArgs e)
         {
             PS4_Tools.PKG.SceneRelated.Unprotected_PKG PS4_PKG = PS4_Tools.PKG.SceneRelated.Read_PKG(this.filenames);
+            this.Text = "Param Info : " + PS4_PKG.PS4_Title;
+
             DataTable dttemp = new DataTable();
             dttemp.Columns.Add("PARAM");
             dttemp.Columns.Add("VALUE");
