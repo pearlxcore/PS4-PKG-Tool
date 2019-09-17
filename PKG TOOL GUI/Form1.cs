@@ -1080,6 +1080,7 @@ namespace PKG_TOOL_GUI
 
         private void ToolStripMenuItem10_Click(object sender, EventArgs e)
         {
+            export_pkg_list();
 
         }
 
@@ -1773,6 +1774,12 @@ namespace PKG_TOOL_GUI
         {
             AddonUnlocker unlocker = new AddonUnlocker();
             unlocker.ShowDialog();
+        }
+
+        private void ExportPKGListToExcelToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            export_pkg_list();
+
         }
 
         private void ExtractImageAndBackgroundToolStripMenuItem_Click(object sender, EventArgs e)

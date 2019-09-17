@@ -261,7 +261,7 @@
             this.globalActionToolStripMenuItem.Enabled = false;
             this.globalActionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.globalActionToolStripMenuItem.Name = "globalActionToolStripMenuItem";
-            this.globalActionToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.globalActionToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.globalActionToolStripMenuItem.Text = "Global Action";
             // 
             // renameToolStripMenuItem
@@ -276,7 +276,7 @@
             this.renameToolStripMenuItem.Enabled = false;
             this.renameToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("renameToolStripMenuItem.Image")));
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.renameToolStripMenuItem.Text = "Rename all PKG";
             // 
             // tITILEToolStripMenuItem
@@ -337,7 +337,7 @@
             this.extractImageAndBackgroundToolStripMenuItem.Enabled = false;
             this.extractImageAndBackgroundToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("extractImageAndBackgroundToolStripMenuItem.Image")));
             this.extractImageAndBackgroundToolStripMenuItem.Name = "extractImageAndBackgroundToolStripMenuItem";
-            this.extractImageAndBackgroundToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.extractImageAndBackgroundToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.extractImageAndBackgroundToolStripMenuItem.Text = "Extract images from PKG";
             this.extractImageAndBackgroundToolStripMenuItem.Click += new System.EventHandler(this.ExtractImageAndBackgroundToolStripMenuItem_Click);
             // 
@@ -350,30 +350,37 @@
             this.exportPKGListToExcelToolStripMenuItem1.Enabled = false;
             this.exportPKGListToExcelToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("exportPKGListToExcelToolStripMenuItem1.Image")));
             this.exportPKGListToExcelToolStripMenuItem1.Name = "exportPKGListToExcelToolStripMenuItem1";
-            this.exportPKGListToExcelToolStripMenuItem1.Size = new System.Drawing.Size(240, 22);
-            this.exportPKGListToExcelToolStripMenuItem1.Text = "Export PKG list";
+            this.exportPKGListToExcelToolStripMenuItem1.Size = new System.Drawing.Size(224, 22);
+            this.exportPKGListToExcelToolStripMenuItem1.Text = "Export PKG list as Excel file";
+            this.exportPKGListToExcelToolStripMenuItem1.Click += new System.EventHandler(this.ExportPKGListToExcelToolStripMenuItem1_Click);
             // 
             // exportAsTextFileToolStripMenuItem
             // 
+            this.exportAsTextFileToolStripMenuItem.Enabled = false;
             this.exportAsTextFileToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exportAsTextFileToolStripMenuItem.Image")));
             this.exportAsTextFileToolStripMenuItem.Name = "exportAsTextFileToolStripMenuItem";
-            this.exportAsTextFileToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.exportAsTextFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportAsTextFileToolStripMenuItem.Text = "Export as Text file";
+            this.exportAsTextFileToolStripMenuItem.Visible = false;
             // 
             // exportAsExcelFileToolStripMenuItem
             // 
+            this.exportAsExcelFileToolStripMenuItem.Enabled = false;
             this.exportAsExcelFileToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exportAsExcelFileToolStripMenuItem.Image")));
             this.exportAsExcelFileToolStripMenuItem.Name = "exportAsExcelFileToolStripMenuItem";
-            this.exportAsExcelFileToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.exportAsExcelFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportAsExcelFileToolStripMenuItem.Text = "Export as Excel file";
+            this.exportAsExcelFileToolStripMenuItem.Visible = false;
             this.exportAsExcelFileToolStripMenuItem.Click += new System.EventHandler(this.ExportAsExcelFileToolStripMenuItem_Click);
             // 
             // exportAsPDFFileToolStripMenuItem
             // 
+            this.exportAsPDFFileToolStripMenuItem.Enabled = false;
             this.exportAsPDFFileToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exportAsPDFFileToolStripMenuItem.Image")));
             this.exportAsPDFFileToolStripMenuItem.Name = "exportAsPDFFileToolStripMenuItem";
-            this.exportAsPDFFileToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.exportAsPDFFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportAsPDFFileToolStripMenuItem.Text = "Export as PDF file";
+            this.exportAsPDFFileToolStripMenuItem.Visible = false;
             // 
             // createUnlockerFPKGForAddonToolStripMenuItem
             // 
@@ -385,14 +392,14 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(237, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Enabled = false;
             this.toolStripMenuItem2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(240, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(224, 22);
             this.toolStripMenuItem2.Text = "...";
             // 
             // UnencryptedContentToolStripMenuItem
@@ -403,7 +410,7 @@
             this.UnencryptedContentToolStripMenuItem.Enabled = false;
             this.UnencryptedContentToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("UnencryptedContentToolStripMenuItem.Image")));
             this.UnencryptedContentToolStripMenuItem.Name = "UnencryptedContentToolStripMenuItem";
-            this.UnencryptedContentToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.UnencryptedContentToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.UnencryptedContentToolStripMenuItem.Text = "Unencrypted content";
             // 
             // unencryptedContentListToolStripMenuItem
@@ -427,7 +434,7 @@
             this.checkForUpdateToolStripMenuItem.Enabled = false;
             this.checkForUpdateToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checkForUpdateToolStripMenuItem.Image")));
             this.checkForUpdateToolStripMenuItem.Name = "checkForUpdateToolStripMenuItem";
-            this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.checkForUpdateToolStripMenuItem.Text = "Check for update";
             this.checkForUpdateToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdateToolStripMenuItem_Click);
             // 
@@ -436,7 +443,7 @@
             this.checkForDLCToolStripMenuItem.Enabled = false;
             this.checkForDLCToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("checkForDLCToolStripMenuItem.Image")));
             this.checkForDLCToolStripMenuItem.Name = "checkForDLCToolStripMenuItem";
-            this.checkForDLCToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.checkForDLCToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.checkForDLCToolStripMenuItem.Text = "Check for addon";
             this.checkForDLCToolStripMenuItem.Click += new System.EventHandler(this.CheckForDLCToolStripMenuItem_Click);
             // 
@@ -445,7 +452,7 @@
             this.viewTrophyListToolStripMenuItem1.Enabled = false;
             this.viewTrophyListToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("viewTrophyListToolStripMenuItem1.Image")));
             this.viewTrophyListToolStripMenuItem1.Name = "viewTrophyListToolStripMenuItem1";
-            this.viewTrophyListToolStripMenuItem1.Size = new System.Drawing.Size(240, 22);
+            this.viewTrophyListToolStripMenuItem1.Size = new System.Drawing.Size(224, 22);
             this.viewTrophyListToolStripMenuItem1.Text = "View trophy list";
             this.viewTrophyListToolStripMenuItem1.Click += new System.EventHandler(this.ViewTrophyListToolStripMenuItem1_Click);
             // 
@@ -462,7 +469,7 @@
             // 
             this.aboutToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem1.Image")));
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.AboutToolStripMenuItem1_Click);
             // 
@@ -470,7 +477,7 @@
             // 
             this.donateToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("donateToolStripMenuItem1.Image")));
             this.donateToolStripMenuItem1.Name = "donateToolStripMenuItem1";
-            this.donateToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.donateToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.donateToolStripMenuItem1.Text = "Donate";
             this.donateToolStripMenuItem1.Visible = false;
             this.donateToolStripMenuItem1.Click += new System.EventHandler(this.DonateToolStripMenuItem1_Click);
@@ -782,7 +789,7 @@
             this.toolStripMenuItem16,
             this.toolStripMenuItem17});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(205, 274);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(214, 274);
             // 
             // globalActionToolStripMenuItem1
             // 
@@ -894,31 +901,37 @@
             this.exportAsPDFFileToolStripMenuItem1});
             this.toolStripMenuItem10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem10.Image")));
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(204, 22);
-            this.toolStripMenuItem10.Text = "Export PKG list";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(213, 22);
+            this.toolStripMenuItem10.Text = "Export PKG list as Excel file";
             this.toolStripMenuItem10.Click += new System.EventHandler(this.ToolStripMenuItem10_Click);
             // 
             // exportAsTextFileToolStripMenuItem1
             // 
+            this.exportAsTextFileToolStripMenuItem1.Enabled = false;
             this.exportAsTextFileToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("exportAsTextFileToolStripMenuItem1.Image")));
             this.exportAsTextFileToolStripMenuItem1.Name = "exportAsTextFileToolStripMenuItem1";
-            this.exportAsTextFileToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
+            this.exportAsTextFileToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.exportAsTextFileToolStripMenuItem1.Text = "Export as Text file";
+            this.exportAsTextFileToolStripMenuItem1.Visible = false;
             // 
             // exportAsExcelFileToolStripMenuItem1
             // 
+            this.exportAsExcelFileToolStripMenuItem1.Enabled = false;
             this.exportAsExcelFileToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("exportAsExcelFileToolStripMenuItem1.Image")));
             this.exportAsExcelFileToolStripMenuItem1.Name = "exportAsExcelFileToolStripMenuItem1";
-            this.exportAsExcelFileToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
+            this.exportAsExcelFileToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.exportAsExcelFileToolStripMenuItem1.Text = "Export as Excel file";
+            this.exportAsExcelFileToolStripMenuItem1.Visible = false;
             this.exportAsExcelFileToolStripMenuItem1.Click += new System.EventHandler(this.ExportAsExcelFileToolStripMenuItem1_Click);
             // 
             // exportAsPDFFileToolStripMenuItem1
             // 
+            this.exportAsPDFFileToolStripMenuItem1.Enabled = false;
             this.exportAsPDFFileToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("exportAsPDFFileToolStripMenuItem1.Image")));
             this.exportAsPDFFileToolStripMenuItem1.Name = "exportAsPDFFileToolStripMenuItem1";
-            this.exportAsPDFFileToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
+            this.exportAsPDFFileToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.exportAsPDFFileToolStripMenuItem1.Text = "Export as PDF file";
+            this.exportAsPDFFileToolStripMenuItem1.Visible = false;
             // 
             // toolStripSeparator1
             // 
