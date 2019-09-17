@@ -466,7 +466,7 @@ namespace PKG_TOOL_GUI
 
         private void AboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("PS4 PKG Tool\n\nCopyright © pearlxcore 2018\n\nCredit to xXxTheDarkprogramerxXx & Stooged!", "About PS4 PKG Tool");
+            MessageBox.Show("PS4 PKG Tool\n\nCopyright © pearlxcore 2018\n\nCredit to xXxTheDarkprogramerxXx, Maxton & Stooged!", "About PS4 PKG Tool");
 
         }
 
