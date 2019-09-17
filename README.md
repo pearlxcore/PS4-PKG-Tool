@@ -11,6 +11,5 @@
 - Generate addon unlocker FPKG
 
 # Credit
-[xXxTheDarkprogramerxXx](https://github.com/xXxTheDarkprogramerxXx) for the [PS4 Tool](https://github.com/xXxTheDarkprogramerxXx/PS4_Tools) lib
-
-[stooged](https://github.com/stooged) for [psDLC](https://github.com/stooged/psDLC)
+- [xXxTheDarkprogramerxXx](https://github.com/xXxTheDarkprogramerxXx) for the [PS4 Tool](https://github.com/xXxTheDarkprogramerxXx/PS4_Tools) lib
+- [stooged](https://github.com/stooged) for [psDLC](https://github.com/stooged/psDLC)
