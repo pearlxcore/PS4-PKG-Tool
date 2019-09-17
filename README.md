@@ -6,7 +6,7 @@
 - View param info, trophy list
 - Rename and export PKG
 - Check update and addon
-- View and extract unencyrpted content
+- View and extract unencrypted content
 - View and extract PKG image
 - Generate addon unlocker FPKG
 
