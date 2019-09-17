@@ -127,4 +127,10 @@
   <data name="PackageIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\PackageIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fake_dlc_project" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fake_dlc_project.gp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="param_template" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\param_template.sfx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

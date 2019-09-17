@@ -29,7 +29,6 @@ namespace PKG_TOOL_GUI
         string[] root;
         List<string> allFiles = new List<string>();
         List<string> extracted_item = new List<string>();
-        List<string> allFiles_refresh = new List<string>();
         DataTable dttemp_ = new DataTable();
         string a, b, filename, path_only, folderBrowserDialog1_path;
         int s = 0;
@@ -52,6 +51,10 @@ namespace PKG_TOOL_GUI
         {
             0x7F, 0x43, 0x4E, 0x54, 0x40, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0F,
         };
+        static byte[] PKGHeader4 = new byte[16]
+        {
+            0x7F, 0x43, 0x4E, 0x54, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0C,
+        };
         static string paths = Environment.CurrentDirectory;
         public static bool Isconnected = true;
         static public bool _pkgtype = false;
@@ -61,7 +64,6 @@ namespace PKG_TOOL_GUI
         private List<PKG.Official.StoreItems> storeitems;
         private string tempPath;
         private string extractTemp;
-        private PictureBox pb_;
         public Form form_;
 
         public static bool CheckForInternetConnection()
@@ -178,7 +180,7 @@ namespace PKG_TOOL_GUI
             {
                 //filter ps4 pkg by checking magic byte
                 bufferA = checkPKGType(fullpath);
-                if (Tool.CompareBytes(bufferA, PKGHeader) == true || Tool.CompareBytes(bufferA, PKGHeader1) == true || Tool.CompareBytes(bufferA, PKGHeader2) == true || Tool.CompareBytes(bufferA, PKGHeader3) == true)
+                if (Tool.CompareBytes(bufferA, PKGHeader) == true || Tool.CompareBytes(bufferA, PKGHeader1) == true || Tool.CompareBytes(bufferA, PKGHeader2) == true || Tool.CompareBytes(bufferA, PKGHeader3) == true || Tool.CompareBytes(bufferA, PKGHeader4) == true)
                 {
                     s++;
                 }
@@ -192,7 +194,7 @@ namespace PKG_TOOL_GUI
             {
                 //again, filter the pkg
                 bufferA = checkPKGType(fullpath);
-                if (Tool.CompareBytes(bufferA, PKGHeader) == true || Tool.CompareBytes(bufferA, PKGHeader1) == true || Tool.CompareBytes(bufferA, PKGHeader2) == true || Tool.CompareBytes(bufferA, PKGHeader3) == true)
+                if (Tool.CompareBytes(bufferA, PKGHeader) == true || Tool.CompareBytes(bufferA, PKGHeader1) == true || Tool.CompareBytes(bufferA, PKGHeader2) == true || Tool.CompareBytes(bufferA, PKGHeader3) == true || Tool.CompareBytes(bufferA, PKGHeader4) == true)
                 {
                     //begin using darkprogrammer's great ps4 tool
                     PS4_Tools.PKG.SceneRelated.Unprotected_PKG PS4_PKG = PS4_Tools.PKG.SceneRelated.Read_PKG(fullpath);
@@ -205,14 +207,8 @@ namespace PKG_TOOL_GUI
                             version = PS4_PKG.Param.Tables[i].Value;
                         }
                     }
-
-                    using (BinaryReader binaryReader = new BinaryReader(File.OpenRead(fullpath)))
-                    {
-                        binaryReader.BaseStream.Seek(119L, SeekOrigin.Begin);
-                        //ushort num4 = Util.Utils.ReadUInt16(binaryReader);
-                    }
-                        //get pkg's minimum system fw
-                        foreach (Param_SFO.PARAM_SFO.Table t in PS4_PKG.Param.Tables.ToList())
+                    //get pkg's minimum system fw
+                    foreach (Param_SFO.PARAM_SFO.Table t in PS4_PKG.Param.Tables.ToList())
                     {
                         if (t.Name == "SYSTEM_VER")
                         {
@@ -253,6 +249,42 @@ namespace PKG_TOOL_GUI
         private void ExitToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        public static ushort ReadUInt16(object stream)
+        {
+            byte[] array = new byte[4];
+            Type type = null;
+            string memberName = "Read";
+            object[] array2 = new object[]
+            {
+                array,
+                0,
+                2
+            };
+            object[] arguments = array2;
+            string[] argumentNames = null;
+            Type[] typeArguments = null;
+            bool[] array3 = new bool[]
+            {
+                true,
+                false,
+                false
+            };
+            //NewLateBinding.LateCall(stream, type, memberName, arguments, argumentNames, typeArguments, array3, true);
+            //if (array3[0])
+            //{
+            //    array = (byte[])Conversions.ChangeType(RuntimeHelpers.GetObjectValue(array2[0]), typeof(byte[]));
+            //}
+            array = ((BinaryReader)stream).ReadBytes(array.Length);
+            Array.Reverse(array, 0, 2);
+            return BitConverter.ToUInt16(array, 0);
+
+            ////we need to make sure this all works 
+            //string temp = "";
+            //BinaryReader reader = (BinaryReader)stream;
+            ////throw new Exception("sfasda");
+            //return reader.ReadUInt16();
         }
 
         private void DataGridView1_MouseClick(object sender, MouseEventArgs e)
@@ -434,7 +466,7 @@ namespace PKG_TOOL_GUI
 
         private void AboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("PS4 PKG Tool\n\nCopyright © pearlxcore 2018\n\nCredit to xDPx & Maxton!", "About PS4 PKG Tool");
+            MessageBox.Show("PS4 PKG Tool\n\nCopyright © pearlxcore 2018\n\nCredit to xDPx, Maxton & Stooged!", "About PS4 PKG Tool");
 
         }
 
@@ -1735,6 +1767,12 @@ namespace PKG_TOOL_GUI
             clearListToolStripMenuItem.Enabled = false;
             s = 0;
 
+        }
+
+        private void CreateUnlockerFPKGForAddonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddonUnlocker unlocker = new AddonUnlocker();
+            unlocker.ShowDialog();
         }
 
         private void ExtractImageAndBackgroundToolStripMenuItem_Click(object sender, EventArgs e)

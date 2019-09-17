@@ -95,7 +95,7 @@ namespace PKG_TOOL_GUI
         {
             PS4_Tools.PKG.SceneRelated.Unprotected_PKG PS4_PKG = PS4_Tools.PKG.SceneRelated.Read_PKG(filenames);
 
-            if (PS4_PKG.Image != null)
+            if (PS4_PKG.Icon != null)
             {
                 this.Size = iconSize;
                 pictureBox1.Image = BytesToBitmap(PS4_PKG.Icon);
@@ -114,96 +114,92 @@ namespace PKG_TOOL_GUI
             {
                 PS4_Tools.PKG.SceneRelated.Unprotected_PKG PS4_PKG = PS4_Tools.PKG.SceneRelated.Read_PKG(filenames);
                 this.Text = PS4_PKG.PS4_Title + " PIC0";
-                if (PS4_PKG.Image != null || PS4_PKG.Image2 != null)
+                if (PS4_PKG.Image != null && PS4_PKG.Image2 != null)
                 {
-                    if(PS4_PKG.Image != null && PS4_PKG.Image2 != null)
+                    var item = new System.Windows.Forms.ToolStripMenuItem()
                     {
-                        var item = new System.Windows.Forms.ToolStripMenuItem()
-                        {
-                            Name = "pic0",
-                            Text = "PIC0"
-                        };
-                        imageToolStripMenuItem.DropDownItems.Add(item);
-                        item.Click += new EventHandler(this.item1_click);
+                        Name = "pic0",
+                        Text = "PIC0"
+                    };
+                    imageToolStripMenuItem.DropDownItems.Add(item);
+                    item.Click += new EventHandler(this.item1_click);
 
-                        pictureBox1.Image = BytesToBitmap(PS4_PKG.Image);
+                    pictureBox1.Image = BytesToBitmap(PS4_PKG.Image);
 
-                        var item2 = new System.Windows.Forms.ToolStripMenuItem()
-                        {
-                            Name = "pic1",
-                            Text = "PIC1"
-                        };
-                        imageToolStripMenuItem.DropDownItems.Add(item2);
-                        item2.Click += new EventHandler(this.item2_click);
-                        pictureBox1.Image = BytesToBitmap(PS4_PKG.Image2);
-
-                        var icon = new System.Windows.Forms.ToolStripMenuItem()
-                        {
-                            Name = "icon",
-                            Text = "ICON"
-                        };
-                        imageToolStripMenuItem.DropDownItems.Add(icon);
-                        icon.Click += new EventHandler(this.icon_click);
-
-                        currentPic = " (PIC0)";
-                        this.Text = PS4_PKG.PS4_Title + " (PIC0)";
-
-
-                    }
-                    else if (PS4_PKG.Image != null && PS4_PKG.Image2 == null)
+                    var item2 = new System.Windows.Forms.ToolStripMenuItem()
                     {
-                        var item = new System.Windows.Forms.ToolStripMenuItem()
-                        {
-                            Name = "pic0",
-                            Text = "PIC0"
-                        };
-                        imageToolStripMenuItem.DropDownItems.Add(item);
-                        item.Click += new EventHandler(this.item1_click);
-                        pictureBox1.Image = BytesToBitmap(PS4_PKG.Image);
+                        Name = "pic1",
+                        Text = "PIC1"
+                    };
+                    imageToolStripMenuItem.DropDownItems.Add(item2);
+                    item2.Click += new EventHandler(this.item2_click);
+                    pictureBox1.Image = BytesToBitmap(PS4_PKG.Image2);
 
-                        var icon = new System.Windows.Forms.ToolStripMenuItem()
-                        {
-                            Name = "icon",
-                            Text = "ICON"
-                        };
-                        imageToolStripMenuItem.DropDownItems.Add(icon);
-                        icon.Click += new EventHandler(this.icon_click);
-
-                        currentPic = " (PIC0)";
-                        this.Text = PS4_PKG.PS4_Title + " (PIC0)";
-
-
-                    }
-                    else if (PS4_PKG.Image == null && PS4_PKG.Image2 != null)
+                    var icon = new System.Windows.Forms.ToolStripMenuItem()
                     {
-                        var item2 = new System.Windows.Forms.ToolStripMenuItem()
-                        {
-                            Name = "pic1",
-                            Text = "PIC1"
-                        };
-                        imageToolStripMenuItem.DropDownItems.Add(item2);
-                        item2.Click += new EventHandler(this.item2_click);
-                        pictureBox1.Image = BytesToBitmap(PS4_PKG.Image2);
+                        Name = "icon",
+                        Text = "ICON"
+                    };
+                    imageToolStripMenuItem.DropDownItems.Add(icon);
+                    icon.Click += new EventHandler(this.icon_click);
 
-                        var icon = new System.Windows.Forms.ToolStripMenuItem()
-                        {
-                            Name = "icon",
-                            Text = "ICON"
-                        };
-                        imageToolStripMenuItem.DropDownItems.Add(icon);
-                        icon.Click += new EventHandler(this.icon_click);
+                    currentPic = " (PIC0)";
+                    this.Text = PS4_PKG.PS4_Title + " (PIC0)";
 
-                        currentPic = " (PIC1)";
-                        this.Text = PS4_PKG.PS4_Title + " (PIC1)";
-
-                    }
 
                 }
-                else
+                else if (PS4_PKG.Image != null && PS4_PKG.Image2 == null)
                 {
-                    //MessageBox.Show("PS4_PKG.Image2 is null");
-                }
+                    var item = new System.Windows.Forms.ToolStripMenuItem()
+                    {
+                        Name = "pic0",
+                        Text = "PIC0"
+                    };
+                    imageToolStripMenuItem.DropDownItems.Add(item);
+                    item.Click += new EventHandler(this.item1_click);
+                    pictureBox1.Image = BytesToBitmap(PS4_PKG.Image);
 
+                    var icon = new System.Windows.Forms.ToolStripMenuItem()
+                    {
+                        Name = "icon",
+                        Text = "ICON"
+                    };
+                    imageToolStripMenuItem.DropDownItems.Add(icon);
+                    icon.Click += new EventHandler(this.icon_click);
+
+                    currentPic = " (PIC0)";
+                    this.Text = PS4_PKG.PS4_Title + " (PIC0)";
+
+
+                }
+                else if (PS4_PKG.Image == null && PS4_PKG.Image2 != null)
+                {
+                    var item2 = new System.Windows.Forms.ToolStripMenuItem()
+                    {
+                        Name = "pic1",
+                        Text = "PIC1"
+                    };
+                    imageToolStripMenuItem.DropDownItems.Add(item2);
+                    item2.Click += new EventHandler(this.item2_click);
+                    pictureBox1.Image = BytesToBitmap(PS4_PKG.Image2);
+
+                    var icon = new System.Windows.Forms.ToolStripMenuItem()
+                    {
+                        Name = "icon",
+                        Text = "ICON"
+                    };
+                    imageToolStripMenuItem.DropDownItems.Add(icon);
+                    icon.Click += new EventHandler(this.icon_click);
+
+                    currentPic = " (PIC1)";
+                    this.Text = PS4_PKG.PS4_Title + " (PIC1)";
+
+                }
+                else if (PS4_PKG.Image == null && PS4_PKG.Image2 == null && PS4_PKG.Icon != null)
+                {
+                    pictureBox1.Image = BytesToBitmap(PS4_PKG.Icon);
+                    this.Size = iconSize;
+                }
             }
             else
             {

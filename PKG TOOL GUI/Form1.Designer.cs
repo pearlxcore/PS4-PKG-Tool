@@ -56,6 +56,7 @@
             this.exportAsTextFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportAsExcelFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportAsPDFFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createUnlockerFPKGForAddonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.UnencryptedContentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -127,7 +128,6 @@
             this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker4 = new System.ComponentModel.BackgroundWorker();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.createUnlockerFPKGForAddonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -357,14 +357,14 @@
             // 
             this.exportAsTextFileToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exportAsTextFileToolStripMenuItem.Image")));
             this.exportAsTextFileToolStripMenuItem.Name = "exportAsTextFileToolStripMenuItem";
-            this.exportAsTextFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportAsTextFileToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.exportAsTextFileToolStripMenuItem.Text = "Export as Text file";
             // 
             // exportAsExcelFileToolStripMenuItem
             // 
             this.exportAsExcelFileToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exportAsExcelFileToolStripMenuItem.Image")));
             this.exportAsExcelFileToolStripMenuItem.Name = "exportAsExcelFileToolStripMenuItem";
-            this.exportAsExcelFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportAsExcelFileToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.exportAsExcelFileToolStripMenuItem.Text = "Export as Excel file";
             this.exportAsExcelFileToolStripMenuItem.Click += new System.EventHandler(this.ExportAsExcelFileToolStripMenuItem_Click);
             // 
@@ -372,8 +372,15 @@
             // 
             this.exportAsPDFFileToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exportAsPDFFileToolStripMenuItem.Image")));
             this.exportAsPDFFileToolStripMenuItem.Name = "exportAsPDFFileToolStripMenuItem";
-            this.exportAsPDFFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportAsPDFFileToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.exportAsPDFFileToolStripMenuItem.Text = "Export as PDF file";
+            // 
+            // createUnlockerFPKGForAddonToolStripMenuItem
+            // 
+            this.createUnlockerFPKGForAddonToolStripMenuItem.Name = "createUnlockerFPKGForAddonToolStripMenuItem";
+            this.createUnlockerFPKGForAddonToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.createUnlockerFPKGForAddonToolStripMenuItem.Text = "Create addon unlocker FPKG";
+            this.createUnlockerFPKGForAddonToolStripMenuItem.Click += new System.EventHandler(this.CreateUnlockerFPKGForAddonToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -1002,12 +1009,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(300, 299);
             this.panel5.TabIndex = 79;
-            // 
-            // createUnlockerFPKGForAddonToolStripMenuItem
-            // 
-            this.createUnlockerFPKGForAddonToolStripMenuItem.Name = "createUnlockerFPKGForAddonToolStripMenuItem";
-            this.createUnlockerFPKGForAddonToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.createUnlockerFPKGForAddonToolStripMenuItem.Text = "Create unlocker fPKG for addon";
             // 
             // Form1
             // 

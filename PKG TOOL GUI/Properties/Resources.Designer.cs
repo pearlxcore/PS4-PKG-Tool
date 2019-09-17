@@ -73,6 +73,16 @@ namespace PKG_TOOL_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] fake_dlc_project {
+            get {
+                object obj = ResourceManager.GetObject("fake_dlc_project", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] orbis_pub_cmd {
             get {
                 object obj = ResourceManager.GetObject("orbis_pub_cmd", resourceCulture);
@@ -87,6 +97,16 @@ namespace PKG_TOOL_GUI.Properties {
             get {
                 object obj = ResourceManager.GetObject("PackageIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] param_template {
+            get {
+                object obj = ResourceManager.GetObject("param_template", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }
