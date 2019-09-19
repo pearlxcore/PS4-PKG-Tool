@@ -317,20 +317,12 @@ namespace PKG_TOOL_GUI
                 false,
                 false
             };
-            //NewLateBinding.LateCall(stream, type, memberName, arguments, argumentNames, typeArguments, array3, true);
-            //if (array3[0])
-            //{
-            //    array = (byte[])Conversions.ChangeType(RuntimeHelpers.GetObjectValue(array2[0]), typeof(byte[]));
-            //}
+            
             array = ((BinaryReader)stream).ReadBytes(array.Length);
             Array.Reverse(array, 0, 2);
             return BitConverter.ToUInt16(array, 0);
 
-            ////we need to make sure this all works 
-            //string temp = "";
-            //BinaryReader reader = (BinaryReader)stream;
-            ////throw new Exception("sfasda");
-            //return reader.ReadUInt16();
+            
         }
 
         private void DataGridView1_MouseClick(object sender, MouseEventArgs e)
