@@ -9,6 +9,7 @@
 - View and extract unencrypted content
 - View and extract PKG image
 - Generate addon unlocker FPKG
+- No longer using n1ghty's python tool
 
 # Credit
 - [xXxTheDarkprogramerxXx](https://github.com/xXxTheDarkprogramerxXx) for the [PS4 Tool](https://github.com/xXxTheDarkprogramerxXx/PS4_Tools) lib
