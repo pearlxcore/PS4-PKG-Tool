@@ -75,6 +75,7 @@
             this.Name = "picture";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "picture";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Picture_FormClosed);
             this.Load += new System.EventHandler(this.Picture_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);

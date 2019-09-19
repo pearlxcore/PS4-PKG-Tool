@@ -15,7 +15,7 @@ namespace PKG_TOOL_GUI
     {
         private List<Image> imageList;
         private Image imageOne;
-        Size picSize = new Size(910, 511);
+        Size picSize = new Size(910, 520);
         Size iconSize = new Size(350, 370);
         private string currentPic;
 
@@ -69,7 +69,6 @@ namespace PKG_TOOL_GUI
 
                 pictureBox1.Image = BytesToBitmap(PS4_PKG.Image2);
                 currentPic = " (PIC0)";
-                this.Text = PS4_PKG.PS4_Title + " (PIC0)";
                 pictureBox1.Refresh();
 
             }
@@ -85,7 +84,6 @@ namespace PKG_TOOL_GUI
 
                 pictureBox1.Image = BytesToBitmap(PS4_PKG.Image);
                 currentPic = " (PIC1)";
-                this.Text = PS4_PKG.PS4_Title + " (PIC1)";
                 pictureBox1.Refresh();
 
             }
@@ -100,7 +98,6 @@ namespace PKG_TOOL_GUI
                 this.Size = iconSize;
                 pictureBox1.Image = BytesToBitmap(PS4_PKG.Icon);
                 currentPic = " (ICON)";
-                this.Text = PS4_PKG.PS4_Title + " (ICON)";
                 pictureBox1.Refresh();
             }
         }
@@ -113,7 +110,7 @@ namespace PKG_TOOL_GUI
             if (filenames != null)
             {
                 PS4_Tools.PKG.SceneRelated.Unprotected_PKG PS4_PKG = PS4_Tools.PKG.SceneRelated.Read_PKG(filenames);
-                this.Text = PS4_PKG.PS4_Title + " PIC0";
+                this.Text = PS4_PKG.PS4_Title;
                 if (PS4_PKG.Image != null && PS4_PKG.Image2 != null)
                 {
                     var item = new System.Windows.Forms.ToolStripMenuItem()
@@ -144,7 +141,6 @@ namespace PKG_TOOL_GUI
                     icon.Click += new EventHandler(this.icon_click);
 
                     currentPic = " (PIC0)";
-                    this.Text = PS4_PKG.PS4_Title + " (PIC0)";
 
 
                 }
@@ -168,7 +164,6 @@ namespace PKG_TOOL_GUI
                     icon.Click += new EventHandler(this.icon_click);
 
                     currentPic = " (PIC0)";
-                    this.Text = PS4_PKG.PS4_Title + " (PIC0)";
 
 
                 }
@@ -192,7 +187,6 @@ namespace PKG_TOOL_GUI
                     icon.Click += new EventHandler(this.icon_click);
 
                     currentPic = " (PIC1)";
-                    this.Text = PS4_PKG.PS4_Title + " (PIC1)";
 
                 }
                 else if (PS4_PKG.Image == null && PS4_PKG.Image2 == null && PS4_PKG.Icon != null)
@@ -207,5 +201,9 @@ namespace PKG_TOOL_GUI
             }
         }
 
+        private void Picture_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            pictureBox1.Image = null;
+        }
     }
 }

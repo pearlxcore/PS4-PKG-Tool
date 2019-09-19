@@ -65,6 +65,13 @@ namespace PKG_TOOL_GUI
         private string tempPath;
         private string extractTemp;
         public Form form_;
+        private int fake;
+        private int patch;
+        private int game;
+        private int Addon_Theme;
+        private int App;
+        private int Official;
+        private int Addon_Unlocker;
 
         public static bool CheckForInternetConnection()
         {
@@ -139,7 +146,6 @@ namespace PKG_TOOL_GUI
             allFiles.Clear();
             s = 0;
             //search file with .pkg extension
-            folderBrowserDialog1_path = folderBrowserDialog1.SelectedPath;
             root = Directory.GetFiles(folderBrowserDialog1_path, "*.PKG");
             allFiles.AddRange(root);
             string[] folders = Directory.GetDirectories(folderBrowserDialog1_path);
@@ -176,15 +182,20 @@ namespace PKG_TOOL_GUI
             dttemp.Columns.Add("Size");
             dttemp.Columns.Add("Path");
             //count total scanned item
+            //log("PS4 PKG Tool Log :\n\nScanning PS4 PKG :\n");
             foreach (var fullpath in allFiles)
             {
                 //filter ps4 pkg by checking magic byte
                 bufferA = checkPKGType(fullpath);
                 if (Tool.CompareBytes(bufferA, PKGHeader) == true || Tool.CompareBytes(bufferA, PKGHeader1) == true || Tool.CompareBytes(bufferA, PKGHeader2) == true || Tool.CompareBytes(bufferA, PKGHeader3) == true || Tool.CompareBytes(bufferA, PKGHeader4) == true)
                 {
+                    log(Path.GetFileName(fullpath));
                     s++;
                 }
             }
+
+            //log("\nTotal PS4 PKG Found : " + s.ToString() + "\n");
+
             //label1.Enabled = false;
             progressBar1.Visible = true;
             panel3.Visible = true;
@@ -232,8 +243,43 @@ namespace PKG_TOOL_GUI
                     dttemp.Rows.Add(Filename_only, PS4_PKG.Param.TITLEID, PS4_PKG.Param.ContentID, final_ps4_version, version, PS4_PKG.PKGState, PS4_PKG.PKG_Type, size_final, path_only);
                     //increase value(1) each process
                     progressBar1.Increment(1);
+
+                   
+                    if(PS4_PKG.PKG_Type.ToString() == "Game")
+                    {
+                        game++;
+                    }
+                    else if (PS4_PKG.PKG_Type.ToString() == "Patch")
+                    {
+                        patch++;
+                    }
+                    else if (PS4_PKG.PKG_Type.ToString() == "App")
+                    {
+                        App++;
+                    }
+                    else if (PS4_PKG.PKG_Type.ToString() == "Addon_Theme")
+                    {
+                        Addon_Theme++;
+                    }
+
+                    if (PS4_PKG.PKGState.ToString() == "Official")
+                    {
+                        Official++;
+                    }
+                    else if (PS4_PKG.PKGState.ToString() == "Fake")
+                    {
+                        fake++;
+                    }
+                    else if (PS4_PKG.PKGState.ToString() == "Addon_Unlocker")
+                    {
+                        Addon_Unlocker++;
+                    }
                 }
             }
+
+            //log("Game PKG : " + game.ToString() + " , Patch PKG : " + patch.ToString() + " , Application PKG : " + App.ToString() + " , Addon PKG : " + Addon_Theme.ToString());
+            //log("Official PKG : " + Official.ToString() + " , Fake PKG : " + fake.ToString() + " , Addon_Unlocker PKG : " + Addon_Unlocker.ToString());
+
             //add datatable to gridview
             dataGridView1.DataSource = dttemp;
             //dk if this is needed
@@ -310,6 +356,7 @@ namespace PKG_TOOL_GUI
                         }
                         //richTextBox1.Text += "a is " + a + "\n\n";
                         //richTextBox1.Text += "b is " + b + "\n\n";
+                        //MessageBox.Show(filename);
                         runOrbis();
                     }
                     catch (System.Runtime.InteropServices.ExternalException)
@@ -333,8 +380,22 @@ namespace PKG_TOOL_GUI
                 int currentMouseOverRow = dataGridView1.HitTest(e.X, e.Y).RowIndex;
                 if (dataGridView1.GetCellCount(DataGridViewElementStates.Selected) > 0)
                 {
+                    filename = "";
+
                     try
                     {
+                        //get each selected pkg full path
+                        foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
+                        {
+                            int selectedrowindex = cell.RowIndex;
+                            DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
+                            //path + filename.pkg
+                            filename = Convert.ToString(selectedRow.Cells[8].Value) + "\\" + Convert.ToString(selectedRow.Cells[0].Value);
+                        }
+                        //richTextBox1.Text += "a is " + a + "\n\n";
+                        //richTextBox1.Text += "b is " + b + "\n\n";
+                        //MessageBox.Show(filename);
+                        runOrbis();
                         //show contextmenustrip
                         contextMenuStrip1.Show(this, new Point(e.X, e.Y));
                     }
@@ -364,8 +425,11 @@ namespace PKG_TOOL_GUI
             label5.Text = "Adding PS4 PKG..";
             folderBrowserDialog1.Description = "Select PS4 PKG folder";
             //label1.Text = "Opening Folder..";
+
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
+                folderBrowserDialog1_path = folderBrowserDialog1.SelectedPath;
+
                 OpenPKG();
                 if (s == 0)
                 {
@@ -375,7 +439,8 @@ namespace PKG_TOOL_GUI
                 else
                 {
                     //label1.Text = s.ToString() + " PKG found.";
-                    MessageBox.Show("PKG found : " + s.ToString(), "PS4 PKG Tool");
+                    MessageBox.Show("Game PKG : " + game.ToString() + "\nPatch PKG : " + patch.ToString() + "\nApplication PKG : " + App.ToString() + "\nAddon PKG : " + Addon_Theme.ToString()+ "\n\nTotal PKG found : " + s.ToString(), "PS4 PKG Tool");
+
                     openGameFolderToolStripMenuItem.Enabled = true;
                     renameToolStripMenuItem.Enabled = true;
                     reloadContentToolStripMenuItem.Enabled = true;
@@ -386,6 +451,10 @@ namespace PKG_TOOL_GUI
                     UnencryptedContentToolStripMenuItem.Enabled = true;
                     extractImageAndBackgroundToolStripMenuItem.Enabled = true;
                     clearListToolStripMenuItem.Enabled = true;
+                    pictureBox1.Enabled = true;
+                    dataGridView1.Enabled = true;
+                    label4.Enabled = true;
+                    dataGridView2.Enabled = true;
                 }
             }
             else
@@ -403,6 +472,12 @@ namespace PKG_TOOL_GUI
             }
         }
 
+        private void log(string text)
+        {
+            richTextBox1.Text += text + Environment.NewLine;
+            return;
+        }
+
         private void DataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView1.GetCellCount(DataGridViewElementStates.Selected) > 0)
@@ -415,9 +490,7 @@ namespace PKG_TOOL_GUI
                     {
                         int selectedrowindex = cell.RowIndex;
                         DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
-                        a = Convert.ToString(selectedRow.Cells[8].Value);
-                        b = Convert.ToString(selectedRow.Cells[0].Value);
-                        filename = a + "\\" + b;
+                        filename = Convert.ToString(selectedRow.Cells[8].Value) + "\\" + Convert.ToString(selectedRow.Cells[0].Value);
                     }
                     //richTextBox1.Text += "a is " + a + "\n\n";
                     //richTextBox1.Text += "b is " + b + "\n\n";
@@ -446,10 +519,7 @@ namespace PKG_TOOL_GUI
                     {
                         int selectedrowindex = cell.RowIndex;
                         DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
-                        a = Convert.ToString(selectedRow.Cells[8].Value);
-                        b = Convert.ToString(selectedRow.Cells[0].Value);
-                        filename = a + "\\" + b;
-
+                        filename = Convert.ToString(selectedRow.Cells[8].Value) + "\\" + Convert.ToString(selectedRow.Cells[0].Value);
                     }
                     //richTextBox1.Text += "a is " + a + "\n\n";
                     //richTextBox1.Text += "b is " + b + "\n\n";
@@ -569,10 +639,19 @@ namespace PKG_TOOL_GUI
 
         private void PictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
+            PS4_Tools.PKG.SceneRelated.Unprotected_PKG PS4_PKG = PS4_Tools.PKG.SceneRelated.Read_PKG(filename);
+            //prevent image box showed for addon/patch pkg. they only have icon
+            if(PS4_PKG.PKG_Type.ToString() != "Patch" && PS4_PKG.PKG_Type.ToString() != "Addon_Theme")
+            {
+                picture picture = new picture();
+                picture.filenames = filename;
+                picture.ShowDialog();
+            }
 
-            picture picture = new picture();
-            picture.filenames = filename;
-            picture.ShowDialog();
+            
+
+
+
         }
 
         void pb_MouseClick(object sender, MouseEventArgs e)
@@ -1780,6 +1859,56 @@ namespace PKG_TOOL_GUI
         {
             export_pkg_list();
 
+        }
+
+        private void DataGridView1_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void DataGridView1_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+                if (files != null && files.Length != 0)
+                {
+                    folderBrowserDialog1_path = files[0];
+                }
+
+            }
+        }
+
+        private void Form1_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+                if (files != null && files.Length != 0)
+                {
+                    folderBrowserDialog1_path = files[0];
+                }
+
+            }
+        }
+
+        private void Form1_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
         }
 
         private void ExtractImageAndBackgroundToolStripMenuItem_Click(object sender, EventArgs e)
