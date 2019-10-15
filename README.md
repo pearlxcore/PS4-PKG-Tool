@@ -1,5 +1,5 @@
 # PS4 PKG Tool
-![image](https://user-images.githubusercontent.com/36906814/65003204-0824e400-d92a-11e9-8eda-9ed3a9687c14.png)
+![image](https://user-images.githubusercontent.com/36906814/66800943-d6636500-ef49-11e9-8fab-0d852cb1f4aa.png)
 
 The tool allows us to perform various operations on PS4 PKG files.
 
