@@ -10,8 +10,7 @@ The tool allows us to perform various operations on PS4 PKG files.
 - Check update and addon
 - View and extract unencrypted content
 - View and extract PKG image
-- Generate addon unlocker FPKG
-- No longer using n1ghty's python tool
+- Generate addon unlocker PKG
 
 # Credit
 - [xXxTheDarkprogramerxXx](https://github.com/xXxTheDarkprogramerxXx) for the [PS4 Tool](https://github.com/xXxTheDarkprogramerxXx/PS4_Tools) lib
