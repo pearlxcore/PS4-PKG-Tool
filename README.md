@@ -1,5 +1,5 @@
 # PS4 PKG Tool
-The tool allows us to manage and perform various operations on PS4 PKG files.
+The tool allows us to manage and perform various operations on PS4 PKG files without using Sony's official tool.
 
 # Screenshot
 ![5](https://user-images.githubusercontent.com/36906814/67914070-0eb1a700-fbca-11e9-92af-4e18b09c3c24.png)
@@ -24,3 +24,4 @@ The tool allows us to manage and perform various operations on PS4 PKG files.
 - [Maxton](https://github.com/maxton) for [LibOrbisPkg](https://github.com/maxton/LibOrbisPkg)
 - [stooged](https://github.com/stooged) for [psDLC](https://github.com/stooged/psDLC)
 - [DefaultDNB](https://twitter.com/DefaultDNB) for testing
+- Sony <3
