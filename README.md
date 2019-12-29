@@ -2,7 +2,9 @@
 The tool allows us to manage and perform various operations on PS4 PKG files without using Sony's official tool.
 
 # Screenshot
-https://imgur.com/a/3d8Nwsw
+![71554858-c135a700-2a5f-11ea-9532-3d370ca9d6f5](https://user-images.githubusercontent.com/36906814/71560451-1516af00-2aa5-11ea-9aa2-fcd5671630a8.png)
+
+More screenshot : https://imgur.com/a/3d8Nwsw
 
 # Features
 - View PKG in gridview
@@ -35,8 +37,8 @@ v6.3
 v6.4
 
     - New Dark UI theme
-    - Added : extract trophy icon
-    - Added : 'pkgdec' (decrypt and extract pkg entry) by RedEyeX32 in 'View and extract entry list' as requested by justinxrubin
+    - Added feature to extract trophy icon
+    - Added 'pkgdec' (decrypt and extract pkg entry) by RedEyeX32 in 'View and extract entry list' as requested by justinxrubin
     - Small bug fix
 
 # Credit
