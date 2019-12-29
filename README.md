@@ -11,7 +11,6 @@ https://imgur.com/a/3d8Nwsw
 - Check update and addon
 - View and extract unencrypted content
 - View and extract PKG image
-- Generate addon unlocker PKG
 
 # Changelog
 
@@ -22,7 +21,6 @@ v6.1
 v6.2
 
     - Added background audio in .wav format from PKG (Not all PKG contain background audio)
-    - Added trophy icon
     - Added feature to extract PKG content
     - Added feature to validate hashes and signatures
     - Added feature to check new program updates
