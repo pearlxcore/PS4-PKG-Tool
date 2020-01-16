@@ -1,5 +1,5 @@
 # PS4 PKG Tool
-The tool allows us to manage and perform various operations on PS4 PKG files without using Sony's official tool.
+The tool allows us to manage and perform various operations on PS4 PKG.
 
 # Screenshot
 ![71554858-c135a700-2a5f-11ea-9532-3d370ca9d6f5](https://user-images.githubusercontent.com/36906814/71560451-1516af00-2aa5-11ea-9aa2-fcd5671630a8.png)
