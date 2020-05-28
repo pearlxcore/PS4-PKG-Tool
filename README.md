@@ -2,7 +2,7 @@
 The tool allows us to manage and perform various operations on PS4 PKG.
 
 # Screenshot
-![71554858-c135a700-2a5f-11ea-9532-3d370ca9d6f5](https://user-images.githubusercontent.com/36906814/71560451-1516af00-2aa5-11ea-9aa2-fcd5671630a8.png)
+![image](https://user-images.githubusercontent.com/36906814/83122422-320fe680-a106-11ea-8612-eae49a64a368.png)
 
 More screenshot : https://imgur.com/a/3d8Nwsw
 
