@@ -1,18 +1,14 @@
 # PS4 PKG Tool
-The tool allows us to manage and perform various operations on PS4 PKG.
-
-# Screenshot
 ![image](https://user-images.githubusercontent.com/36906814/83122422-320fe680-a106-11ea-8612-eae49a64a368.png)
 
-More screenshot : https://imgur.com/a/3d8Nwsw
+This tool allows us to display PS4 PKG library, manage and perform various operations on PS4 PKG. 
+**This is not a software which allows you to get free PS4 game.**
 
 # Features
-- View PKG in gridview
-- View param info, trophy list
-- Rename and export PKG
-- Check update and addon
-- View and extract unencrypted content
-- View and extract PKG image
+- Scan and view your collection of PS4 PKG in gridview
+- View pkg info such PKG param info, PKG trophy list, PKG entry..
+- Rename and export PKG to excel file.
+- Check PKG update and addon/dlc
 
 # Changelog
 
