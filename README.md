@@ -15,7 +15,6 @@ I re-wrote many parts of PS4 PKG Tool.
 # Todo list
 - [ ] Add PKG header info
 - [ ] Add extract PKG
-- [ ] Add extract PKG
 - [ ] Add PKG hashes and signatures
 - [ ] Add feature to segregate PKG based on Category (game/patch/addon)
 - [ ] Add PS2 Fake PKG Generator
