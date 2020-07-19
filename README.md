@@ -2,7 +2,7 @@
 ![image](https://user-images.githubusercontent.com/36906814/87872280-9d30b780-c9e9-11ea-871e-c8514132394b.png)
 
 This tool allows us to display PS4 PKG library, manage and perform various operations on PS4 PKG.
-I re-wrote many parts of PS4 PKG Tool.
+I re-wrote many parts of this Tool.
 
 **This is not a software which allows you to get free PS4 game.**
 
