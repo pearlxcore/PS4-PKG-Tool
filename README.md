@@ -19,6 +19,7 @@ I re-wrote many parts of PS4 PKG Tool.
 - [ ] Add feature to segregate PKG based on Category (game/patch/addon)
 - [ ] Add PS2 Fake PKG Generator
 - [ ] Add PS1 Fake PKG Generator
+- [ ] Add feature to set pkg image as desktop background image
 
 # Credit
 - [xXxTheDarkprogramerxXx](https://github.com/xXxTheDarkprogramerxXx) for the [PS4 Tool](https://github.com/xXxTheDarkprogramerxXx/PS4_Tools) lib
