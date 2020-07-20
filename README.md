@@ -20,7 +20,7 @@ I re-wrote many parts of this Tool.
 - [ ] Add PS2 Fake PKG Generator
 - [ ] Add PS1 Fake PKG Generator
 - [x] Add feature to set pkg image as desktop background image
-- [x] Add new PKG renaming format to prevent renaming error : [TITLE_ID] [CATEGORY] [VERSION] TITLE, TITLE [CATEGORY] [VERSION]. Renaming game and its update PKG with same **IN** the same directory will throw an exception : Cannot create a file when the file already exists.
+- [x] Add new PKG renaming format to prevent renaming error : [TITLE_ID] [CATEGORY] [VERSION] TITLE, TITLE [CATEGORY] [VERSION]. Renaming game and its update PKG **IN** the same directory will throw an exception : Cannot create a file when the file already exists.
 
 # Credit
 - [xXxTheDarkprogramerxXx](https://github.com/xXxTheDarkprogramerxXx) for the [PS4 Tool](https://github.com/xXxTheDarkprogramerxXx/PS4_Tools) lib
