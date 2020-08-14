@@ -23,7 +23,7 @@ I re-wrote many parts of this tool and changed the program versioning because th
 - [ ] Add feature to segregate PKG based on Category (game/patch/addon)
 - [ ] ~~Add PS2 Fake PKG Generator~~
 - [ ] ~~Add PS1 Fake PKG Generator~~
-- [ ] 'Hardisk Free Space' now displaying every available/connected hardisk partition
+- [x] 'Hardisk Free Space' now displaying every available/connected hardisk partition
 - [x] Add new program setting UI
 - [x] Add pkg sender to send PKG to PS4 via network (WIP)
 - [x] Add option to delete PKG
