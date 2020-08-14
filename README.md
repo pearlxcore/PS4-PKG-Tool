@@ -16,7 +16,7 @@ I re-wrote many parts of this tool and changed the program versioning because th
 - [ ] Add DLC unlocker
 - [ ] Add DLC checker
 - [ ] Add PKG update checker
-- ~~[ ] Add PKG backport tool~~
+- [ ] ~~Add PKG backport tool~~
 - [ ] Add PKG header info
 - [ ] Add extract PKG
 - [ ] Add PKG hashes and signatures
