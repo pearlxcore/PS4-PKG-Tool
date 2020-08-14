@@ -23,6 +23,7 @@ I re-wrote many parts of this tool and changed the program versioning because th
 - [ ] Add feature to segregate PKG based on Category (game/patch/addon)
 - [ ] Add PS2 Fake PKG Generator
 - [ ] Add PS1 Fake PKG Generator
+- [x] Add option for recursive folder scan
 - [x] Add feature to set pkg image as desktop background image
 - [x] Add new PKG renaming format to prevent renaming error : [TITLE_ID] [CATEGORY] [VERSION] TITLE, TITLE [CATEGORY] [VERSION]. Renaming a base application PKG and its update PKG in the same directory will throw an exception : Cannot create a file when the file already exists.
 - [x] Fix issue https://github.com/pearlxcore/PS4-PKG-Tool/issues/6
