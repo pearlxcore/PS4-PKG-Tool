@@ -32,6 +32,7 @@ I re-wrote many parts of this tool and changed the program versioning because th
 - [x] Add new PKG renaming format to prevent renaming error : [TITLE_ID] [CATEGORY] [VERSION] TITLE, TITLE [CATEGORY] [VERSION]. Renaming a base application PKG and its update PKG in the same directory will throw an exception : Cannot create a file when the file already exists
 - [x] Fix issue https://github.com/pearlxcore/PS4-PKG-Tool/issues/6
 - [x] Fix issue https://github.com/pearlxcore/PS4-PKG-Tool/issues/7
+- [x] Fix "Illegal characters path" error while renaming PKG
 
 # Credit
 - [xXxTheDarkprogramerxXx](https://github.com/xXxTheDarkprogramerxXx) for the [PS4 Tool](https://github.com/xXxTheDarkprogramerxXx/PS4_Tools) lib
