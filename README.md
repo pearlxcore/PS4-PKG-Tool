@@ -6,6 +6,9 @@ I re-wrote many parts of this tool and changed the program versioning because th
 
 **This is not a software which allows you to get free PS4 game.**
 
+# Requirement
+- [.Net Framework 4.6](https://www.microsoft.com/en-nz/download/details.aspx?id=48130)
+
 # Features
 - Scan and view your collection of PS4 PKG library.
 - View pkg info such PKG param info, PKG trophy list and PKG entry.
