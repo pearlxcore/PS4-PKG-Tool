@@ -15,6 +15,16 @@ I re-wrote many parts of this tool and changed the program versioning because th
 - Rename and export PKG to excel file.
 - Check PKG update.
 
+# How to use Remote Package Installer feature
+
+- Open program settings.
+- Set PC and PS4 IP address.
+- Install node.js and http-server module.
+- If you fail to install http-server via PS4 PKG Tool, restart PS4 PKG Tool and try reinstall the module or you can install it manually using command 'npm install http-server -g' on command prompt.
+- Save and Exit program settings.
+- Select PKG you wish to install, right-click and select 'Send PKG to PS4'.
+
+
 # Todo list
 - [ ] Add DLC unlocker
 - [ ] Add DLC checker
