@@ -22,8 +22,8 @@ I re-wrote many parts of this tool and changed the program versioning because th
 - Install node.js and http-server module.
 - If you fail to install http-server via PS4 PKG Tool, restart PS4 PKG Tool and try reinstall the module or you can install it manually using command 'npm install http-server -g' on command prompt.
 - Save and Exit program settings.
+- Launch Remote Package Installer apps on your PS4.
 - Select PKG you wish to install, right-click and select 'Send PKG to PS4'.
-
 
 # Todo list
 - [ ] Add DLC unlocker
