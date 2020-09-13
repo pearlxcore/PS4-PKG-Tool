@@ -17,6 +17,8 @@ I re-wrote many parts of this tool and changed the program versioning because th
 
 # How to use Remote Package Installer feature
 
+This only compatible with any PS4 firmware capable running Flatz's Remote Package Installer app. Splitted update PKG is not supported at this moment.
+
 - Open program settings.
 - Set PC and PS4 IP address.
 - Install node.js and http-server module.
