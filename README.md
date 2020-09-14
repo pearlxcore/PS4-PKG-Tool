@@ -47,6 +47,9 @@ This only compatible with any PS4 firmware capable running Flatz's Remote Packag
 - [x] Fix "Illegal characters path" error while renaming PKG
 - [x] Add new PKG renaming format 
 
+# Support my work with Ko-Fi
+https://ko-fi.com/pearlxcore
+
 # Credit
 - [xXxTheDarkprogramerxXx](https://github.com/xXxTheDarkprogramerxXx) for the [PS4 Tool](https://github.com/xXxTheDarkprogramerxXx/PS4_Tools) lib
 - [Maxton](https://github.com/maxton) for [LibOrbisPkg](https://github.com/maxton/LibOrbisPkg)
