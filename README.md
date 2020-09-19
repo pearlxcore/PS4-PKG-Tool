@@ -14,6 +14,7 @@ I re-wrote many parts of this tool and changed the program versioning because th
 - View pkg info such PKG param info, PKG trophy list and PKG entry.
 - Rename and export PKG to excel file.
 - Check PKG update.
+- Send PKG to PS4 via network.
 
 # How to use Remote Package Installer feature
 
