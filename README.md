@@ -27,26 +27,6 @@ This only compatible with any PS4 firmware capable running Flatz's Remote Packag
 - Launch Remote Package Installer apps on your PS4.
 - Select PKG you wish to install, right-click and select 'Send PKG to PS4'.
 
-# Todo list
-- [ ] Add DLC unlocker
-- [ ] Add DLC checker
-- [ ] Add PKG update checker
-- [ ] Add PKG header info
-- [ ] Add extract PKG
-- [ ] Add PKG hashes and signatures
-- [ ] Add feature to segregate PKG based on Category (game/patch/addon)
-- [x] 'Hardisk Free Space' now displaying every available/connected hardisk partition
-- [x] Add new program setting UI
-- [x] Add pkg sender to send PKG to PS4 via network (WIP)
-- [x] Add option to delete PKG
-- [x] Add option for recursive folder scan
-- [x] Add feature to set pkg image as desktop background image
-- [x] Add new PKG renaming format to prevent renaming error : Cannot create a file when the file already exists
-- [x] Fix issue https://github.com/pearlxcore/PS4-PKG-Tool/issues/6
-- [x] Fix issue https://github.com/pearlxcore/PS4-PKG-Tool/issues/7
-- [x] Fix "Illegal characters path" error while renaming PKG
-- [x] Add new PKG renaming format 
-
 # Support my work with Ko-Fi
 https://ko-fi.com/pearlxcore
 
