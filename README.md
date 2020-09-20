@@ -28,6 +28,10 @@ This only compatible with any PS4 firmware capable running Flatz's Remote Packag
 - Launch Remote Package Installer apps on your PS4.
 - Select PKG you wish to install, right-click and select 'Send PKG to PS4'.
 
+# Download
+
+https://github.com/pearlxcore/PS4-PKG-Tool/releases
+
 # Support my work with Ko-Fi
 https://ko-fi.com/pearlxcore
 
