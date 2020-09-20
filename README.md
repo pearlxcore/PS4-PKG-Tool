@@ -17,7 +17,6 @@ I re-wrote many parts of this tool and changed the program versioning because th
 - Send PKG to PS4 via network.
 
 # How to use Remote Package Installer feature
-
 This only compatible with any PS4 firmware capable running Flatz's Remote Package Installer app. Splitted update PKG is not supported at this moment.
 
 - Open program settings.
@@ -29,11 +28,10 @@ This only compatible with any PS4 firmware capable running Flatz's Remote Packag
 - Select PKG you wish to install, right-click and select 'Send PKG to PS4'.
 
 # Download
-
 https://github.com/pearlxcore/PS4-PKG-Tool/releases
 
 # Support my work with Ko-Fi
-https://ko-fi.com/pearlxcore
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R6R524N7X)
 
 # Credit
 - [xXxTheDarkprogramerxXx](https://github.com/xXxTheDarkprogramerxXx) for the [PS4 Tool](https://github.com/xXxTheDarkprogramerxXx/PS4_Tools) lib
