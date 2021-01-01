@@ -34,7 +34,7 @@ https://github.com/pearlxcore/PS4-PKG-Tool/releases
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R6R524N7X)  [![paypal](https://user-images.githubusercontent.com/36906814/102657760-39d1ce00-41b1-11eb-96fe-c10e2d9b3f39.png)](https://www.paypal.com/paypalme/pearlxcoree)
 
 # Credit
-- [xXxTheDarkprogramerxXx](https://github.com/xXxTheDarkprogramerxXx) for the [PS4 Tool](https://github.com/xXxTheDarkprogramerxXx/PS4_Tools) lib
-- [Maxton](https://github.com/maxton) for [LibOrbisPkg](https://github.com/maxton/LibOrbisPkg)
-- [stooged](https://github.com/stooged) for [psDLC](https://github.com/stooged/psDLC)
+- [xXxTheDarkprogramerxXx](https://github.com/xXxTheDarkprogramerxXx)
+- [Maxton](https://github.com/maxton) 
+- [leecherman](https://sites.google.com/site/theleecherman/)
 - Sony <3
