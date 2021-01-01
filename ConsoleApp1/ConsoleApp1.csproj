@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="PS4_Tools">
+      <HintPath>..\..\..\..\Desktop\PS4_Tools-master (2)\PS4_Tools-master\PS4_Tools\bin\Debug\PS4_Tools.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
