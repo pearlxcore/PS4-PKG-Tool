@@ -37,4 +37,5 @@ https://github.com/pearlxcore/PS4-PKG-Tool/releases
 - [xXxTheDarkprogramerxXx](https://github.com/xXxTheDarkprogramerxXx)
 - [Maxton](https://github.com/maxton) 
 - [leecherman](https://sites.google.com/site/theleecherman/)
+- [andshrew](https://github.com/andshrew)
 - Sony <3
