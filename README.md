@@ -2,7 +2,7 @@
 ![image](https://user-images.githubusercontent.com/36906814/103442655-37807100-4c93-11eb-96c3-f0623a74caae.png)
 
 This tool allows us to display PS4 PKG library, manage and perform various operations on PS4 PKG.
-I re-wrote many parts of this tool and changed the program versioning because the previous versioning is messed up. For new release I will start with v1.0. Some features is disabled as it not working properly and listed it in todo checklist. All suggestion are welcome. Report if there any bugs [here](https://github.com/pearlxcore/PS4-PKG-Tool/issues).
+Suggestion are welcome. Report if there any bugs [here](https://github.com/pearlxcore/PS4-PKG-Tool/issues).
 
 **This is not a software which allows you to get free PS4 game.**
 
