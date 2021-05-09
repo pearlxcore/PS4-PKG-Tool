@@ -31,7 +31,13 @@ This only compatible with any PS4 firmware capable running Flatz's Remote Packag
 https://github.com/pearlxcore/PS4-PKG-Tool/releases
 
 # Support my work
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R6R524N7X)  [![paypal](https://user-images.githubusercontent.com/36906814/102657760-39d1ce00-41b1-11eb-96fe-c10e2d9b3f39.png)](https://www.paypal.com/paypalme/pearlxcoree)
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R6R524N7X)  
+
+[![paypal](https://user-images.githubusercontent.com/36906814/102657760-39d1ce00-41b1-11eb-96fe-c10e2d9b3f39.png)](https://www.paypal.com/paypalme/pearlxcoree)  
+
+![image](https://user-images.githubusercontent.com/36906814/117588415-b449bd00-b155-11eb-86df-4aef840a07ee.png)  
+SafeMoon : 0x73c308089DE90E8D7c186271C872f3cDec061cC0
+
 
 # Credit
 - [xXxTheDarkprogramerxXx](https://github.com/xXxTheDarkprogramerxXx)
