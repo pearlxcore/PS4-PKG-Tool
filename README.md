@@ -41,7 +41,7 @@ SafeMoon : 0x73c308089DE90E8D7c186271C872f3cDec061cC0
 
 # Credit
 - [xXxTheDarkprogramerxXx](https://github.com/xXxTheDarkprogramerxXx)
-- [Maxton](https://github.com/maxton) 
+- [Maxton (RIP)](https://github.com/maxton) 
 - [leecherman](https://sites.google.com/site/theleecherman/)
 - [andshrew](https://github.com/andshrew)
 - Sony <3
