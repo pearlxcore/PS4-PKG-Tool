@@ -1,5 +1,5 @@
 # PS4 PKG Tool
-![image](https://user-images.githubusercontent.com/36906814/103442655-37807100-4c93-11eb-96c3-f0623a74caae.png)
+![Untitled](https://user-images.githubusercontent.com/36906814/150161205-6fee1d79-d7cc-4331-994f-727e65b173be.png)
 
 This tool allows us to display PS4 PKG library, manage and perform various operations on PS4 PKG.
 Suggestion are welcome. Report if there any bugs [here](https://github.com/pearlxcore/PS4-PKG-Tool/issues).
