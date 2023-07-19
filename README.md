@@ -17,15 +17,15 @@ Suggestion are welcome. Report if there any bugs [here](https://github.com/pearl
 - Send PKG to PS4 via network.
 
 # How to use Remote Package Installer feature
-This only compatible with any PS4 firmware capable running Flatz's Remote Package Installer app. Splitted update PKG is not supported at this moment.
+This is only compatible with PS4 firmware that can run Flatz's Remote Package Installer app. Split update PKG files are currently not supported.
 
-- Open program settings.
-- Set PC and PS4 IP address.
-- Install node.js and http-server module. (Make sure Node.js allowed through firewall)
-- If you unable to install http-server via PS4 PKG Tool, restart PS4 PKG Tool and try reinstall the module or you can install it manually using command 'npm install http-server -g' on command prompt.
-- Save and Exit program settings.
-- Launch Remote Package Installer apps on your PS4.
-- Select PKG you wish to install, right-click and select 'Send PKG to PS4'.
+- Open the program settings.
+- Set the IP addresses for your PC and PS4.
+- Install Node.js and the http-server module (Ensure that Node.js is allowed through the firewall).
+- If you are unable to install the http-server module via the PS4 PKG Tool, try restarting the PS4 PKG Tool and reinstalling the module. Alternatively, you can manually install it by running the command 'npm install http-- server -g' in the command prompt.
+- Save the changes and exit the program settings.
+- Launch the Remote Package Installer app on your PS4.
+- Select the PKG file you wish to install, right-click on it, and choose 'Send PKG to PS4'.
 
 # Download
 https://github.com/pearlxcore/PS4-PKG-Tool/releases
