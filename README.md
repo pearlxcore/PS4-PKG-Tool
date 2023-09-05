@@ -1,5 +1,6 @@
 # PS4 PKG Tool
-![Untitled](https://user-images.githubusercontent.com/36906814/150161205-6fee1d79-d7cc-4331-994f-727e65b173be.png)
+
+[![Github All Releases](https://img.shields.io/github/downloads/pearlxcore/PS4-PKG-Tool/total.svg)]()
 
 This tool allows us to display PS4 PKG library, manage and perform various operations on PS4 PKG.
 Suggestion are welcome. Report if there any bugs [here](https://github.com/pearlxcore/PS4-PKG-Tool/issues).
@@ -7,11 +8,11 @@ Suggestion are welcome. Report if there any bugs [here](https://github.com/pearl
 **This is not a software which allows you to get free PS4 game.**
 
 # Requirement
-- [.Net Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472)
+- [.NET 7](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 
 # Features
 - Scan and view your collection of PS4 PKG library.
-- View pkg info such PKG param info, PKG trophy list and PKG entry.
+- View pkg info such PKG param.sfo information, PKG trophy list and PKG entries.
 - Rename and export PKG to excel file.
 - Check PKG update.
 - Send PKG to PS4 via network.
@@ -26,6 +27,14 @@ This is only compatible with PS4 firmware that can run Flatz's Remote Package In
 - Save the changes and exit the program settings.
 - Launch the Remote Package Installer app on your PS4.
 - Select the PKG file you wish to install, right-click on it, and choose 'Send PKG to PS4'.
+
+# Screenshot
+
+![4](https://github.com/pearlxcore/PS4-PKG-Tool/assets/36906814/85e05c65-4ece-4e56-9674-61144dea1855)
+![1](https://github.com/pearlxcore/PS4-PKG-Tool/assets/36906814/9652aa4d-771e-417f-861e-7ae7072231ae)
+![2](https://github.com/pearlxcore/PS4-PKG-Tool/assets/36906814/5cf50de3-122e-4e98-8f2f-fa94ee270586)
+![3](https://github.com/pearlxcore/PS4-PKG-Tool/assets/36906814/049ce657-649a-4fd1-9c8a-e1ec923569dd)
+
 
 # Download
 https://github.com/pearlxcore/PS4-PKG-Tool/releases
