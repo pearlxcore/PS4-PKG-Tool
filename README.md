@@ -11,13 +11,23 @@ Suggestion are welcome. Report if there any bugs [here](https://github.com/pearl
 - [.NET 7](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 
 # Features
-- Scan and view your collection of PS4 PKG library.
-- View pkg info such PKG param.sfo information, PKG trophy list and PKG entries.
-- Rename and export PKG to excel file.
-- Check PKG update.
-- Send PKG to PS4 via network.
+- Scan and view your collection of PS4 PKG library in grid view.
+- View PKG information, such as param.sfo information, trophy list, and entries.
+- Filter grid view by category (Game, Patch, Addon, App).
+- View PKG change information.
+- View and extract PKG data.
+- Extract PKG background image and icon.
+- Extract trophy icon.
+- Set backport label or remarks to PKG.
+- Check for duplicate PKG.
+- Rename PKG to a readable format using available naming presets or a custom naming format.
+- Move/group PKG locations by title, region, category (Game, Patch, Addon, App), or Type (Fake/Official).
+- Export PKG collection list to an Excel file.
+- View information and download official update PKG.
+- Install/uninstall PKG from PS4 via network using Remote Package Installer.
+- Check PS5 backward compatibility.
 
-# How to use Remote Package Installer feature
+# How to use Remote Package Installer
 This is only compatible with PS4 firmware that can run Flatz's Remote Package Installer app. Split update PKG files are currently not supported.
 
 - Open the program settings.
